@@ -3,26 +3,26 @@
     "version": "1.0.0",
     "description": "Frontend React application for Lovely Loots - Antique e-commerce platform",
     "scripts": {
-      "dev": "vite",
-      "build": "vite build",
-      "preview": "vite preview"
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
     },
     "author": "Caroline Bost, Sam Mina, and Kevin Wolf",
     "license": "None",
+    "type": "module",
     "dependencies": {
-      "@vitejs/plugin-react": "^1.0.0",
-      "react": "^18.0.0",
-      "react-dom": "^18.0.0",
-      "react-router-dom": "^6.3.0",
-      "apollo-client": "^3.5.0",
-      "graphql": "^15.5.0",
-      "dotenv": "^10.0.0"
+        "@apollo/client": "^3.5.0",
+        "@vitejs/plugin-react": "^4.3.4",
+        "dotenv": "^10.0.0",
+        "graphql": "^15.5.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-router-dom": "^6.3.0"
     },
     "devDependencies": {
-      "vite": "^2.6.4"
+        "vite": "^6.0.3"
     },
     "engines": {
-      "node": ">=14.0.0"
+        "node": ">=14.0.0"
     }
-  }
-  
+}
