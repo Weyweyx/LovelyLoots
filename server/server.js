@@ -8,6 +8,18 @@ const resolvers = require('./schemas/resolvers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/lovely-loots', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+mongoose.connection.on('connected', () =>
+  console.log('Connected to MongoDB')
+);
+mongoose.connection.on('error', (err) =>
+  console.error('MongoDB connection error:', err)
+);
+
 // Enable CORS for requests coming from the frontend running on localhost:5173
 
 app.use(cors({ origin: 'http://localhost:5173' }));
