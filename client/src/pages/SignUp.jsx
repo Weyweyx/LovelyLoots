@@ -20,6 +20,21 @@ function Signup(props) {
     });
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
+
+    let validationErrors = {};
+
+    if (!firstName) validationErrors.firstName = 'First name is required!';
+    if (!lastName) validationErrors.lastName = 'Last name is required!';
+    if (!email) validationErrors.email = 'Email is required!';
+    else if (!/\S+@\S+/.test(email)) validationErrors.email = 'Email is invalid';
+    if (!password) validationErrors.password = 'Password is required!';
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    console.log('SignUp form submitted', { firstName, lastName, email, password });
   };
 
   const handleChange = (event) => {
