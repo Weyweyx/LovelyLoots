@@ -3,11 +3,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 
 import App from './App.jsx';
-import Home from './pages/Home';
-import Detail from './pages/ProductDetail';
-import NoMatch from './pages/NoMatch';
-import Login from './pages/Login';
-import Signup from './pages/SignUp';
+import Home from './pages/Home.jsx';
+import ProductDetail from './pages/ProductDetail.jsx';
+import NoMatch from './pages/NoMatch.jsx';
+import Login from './pages/Login.jsx';
+import Signup from './pages/SignUp.jsx';
+import ProductDetail from './pages/ProductDetail.jsx';
 //import Success from './pages/Success';
 
 const router = createBrowserRouter([
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
         element: <Signup />
       }, {
         path: '/products/:id',
-        element: <Detail />
+        element: <ProductDetail />
       }, /* {
         path: '/success',
         element: <Success />
