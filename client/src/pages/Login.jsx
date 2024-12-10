@@ -31,7 +31,7 @@ function Login(props) {
 
   return (
     <div>
-      <Link to="/SignUp">Go to Signup!</Link>
+      <Link to="/signup">Go to Signup!</Link>
 
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
