@@ -4,7 +4,7 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
-function ProductItem(item) {
+function ProductInfo(item) {
   const [state, dispatch] = useStoreContext();
 
   const { image, name, _id, price, quantity } = item;
@@ -33,7 +33,7 @@ function ProductItem(item) {
   };
 
   return (
-    <div className="card px-1 py-1">
+    <div>
       <Link to={`/products/${_id}`}>
         <img alt={name} src={`/images/${image}`} />
         <p>{name}</p>
@@ -49,4 +49,4 @@ function ProductItem(item) {
   );
 }
 
-export default ProductItem;
+export default ProductInfo;

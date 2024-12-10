@@ -14,7 +14,7 @@ import { QUERY_PRODUCTS } from "../utils/queries";
 import { idbPromise } from "../utils/helpers";
 import spinner from "../assets/spinner.gif";
 
-function Detail() {
+function ProductDetail() {
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
 
@@ -89,7 +89,7 @@ function Detail() {
   return (
     <>
       {currentProduct && cart ? (
-        <div className="container my-1">
+        <div>
           <Link to="/">← Back to Products</Link>
 
           <h2>{currentProduct.name}</h2>
@@ -119,4 +119,4 @@ function Detail() {
   );
 }
 
-export default Detail;
+export default ProductDetail;
