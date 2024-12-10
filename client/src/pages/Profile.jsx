@@ -20,7 +20,7 @@ const Profile = () => {
   const user = data?.user || {};
 
   return (
-    <div className="container my-1">
+    <div>
       <h2>Your Profile</h2>
       <div>
         <p>
@@ -51,7 +51,7 @@ const Profile = () => {
           ))}
         </div>
       ) : (
-        <h3>You haven't placed any orders yet.</h3>
+        <h3>You haven't placed any orders yet!</h3>
       )}
     </div>
   );

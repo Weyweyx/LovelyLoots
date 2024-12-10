@@ -6,7 +6,7 @@ import { UPDATE_CATEGORIES, UPDATE_PRODUCTS } from "../utils/actions";
 import ProductItem from "../components/ProductInfo";
 import { idbPromise } from "../utils/helpers";
 
-const Home = () => {
+const ProductSearch = () => {
   const [state, dispatch] = useStoreContext();
 
   const { categories, currentCategory } = state;
@@ -69,11 +69,11 @@ const Home = () => {
             ))}
           </div>
         ) : (
-          <h3>No products found in this category.</h3>
+          <h3>Sorry, no loot found in this category!</h3>
         )}
       </div>
     </main>
   );
 };
 
-export default Home;
+export default ProductSearch;

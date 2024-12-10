@@ -26,7 +26,7 @@ function Signup(props) {
     if (!firstName) validationErrors.firstName = 'First name is required!';
     if (!lastName) validationErrors.lastName = 'Last name is required!';
     if (!email) validationErrors.email = 'Email is required!';
-    else if (!/\S+@\S+/.test(email)) validationErrors.email = 'Email is invalid';
+    else if (!/\S+@\S+/.test(email)) validationErrors.email = 'Email is invalid!';
     if (!password) validationErrors.password = 'Password is required!';
 
     if (Object.keys(validationErrors).length > 0) {
