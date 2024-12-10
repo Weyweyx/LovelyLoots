@@ -1,15 +1,15 @@
-import { useEffect } from "react";
-import { loadStripe } from "@stripe/stripe-js";
-import { useLazyQuery } from "@apollo/client";
-import { QUERY_CHECKOUT } from "../utils/queries";
-import { idbPromise } from "../utils/helpers";
-import CartItem from "../CartItem";
-import Auth from "../utils/auth";
-import { useStoreContext } from "../utils/GlobalState";
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
-import "../assets/css";
+import { useEffect } from 'react';
+import { loadStripe } from '@stripe/stripe-js';
+import { useLazyQuery } from '@apollo/client';
+import { QUERY_CHECKOUT } from '../utils/queries';
+import { idbPromise } from '../utils/helpers';
+import CartItem from './CartItem';
+import Auth from '../utils/auth';
+import { useStoreContext } from '../utils/GlobalState';
+import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../utils/actions';
+import '../assets/css/style.css';
 
-const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
@@ -25,7 +25,7 @@ const Cart = () => {
 
   useEffect(() => {
     async function getCart() {
-      const cart = await idbPromise("cart", "get");
+      const cart = await idbPromise('cart', 'get');
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
     }
 
@@ -57,7 +57,7 @@ const Cart = () => {
   if (!state.cartOpen) {
     return (
       <div onClick={toggleCart}>
-        <span role="img" aria-label="trash">
+        <span role='img' aria-label='trash'>
           🛒
         </span>
       </div>
@@ -66,9 +66,7 @@ const Cart = () => {
 
   return (
     <div>
-      <div onClick={toggleCart}>
-        [close]
-      </div>
+      <div onClick={toggleCart}>[close]</div>
       <h2>Shopping Cart</h2>
       {state.cart.length ? (
         <div>
@@ -87,9 +85,7 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <h3>
-          You haven't found any loot yet!
-        </h3>
+        <h3>You haven't found any loot yet!</h3>
       )}
     </div>
   );

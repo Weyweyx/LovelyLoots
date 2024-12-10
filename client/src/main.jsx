@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-//import './index.css';
+import './index.css';
 
 import App from './App.jsx';
 import LandingPage from './pages/LandingPage.jsx';
@@ -10,6 +10,8 @@ import Signup from './pages/SignUp.jsx';
 import ProductDetail from './pages/ProductDetail.jsx';
 //import Success from './pages/Success';
 
+console.log('Hello?');
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -18,20 +20,23 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <LandingPage />
-      }, {
+        element: <LandingPage />,
+      },
+      {
         path: '/login',
-        element: <Login />
-      }, {
+        element: <Login />,
+      },
+      {
         path: '/signup',
-        element: <Signup />
-      }, {
+        element: <Signup />,
+      },
+      {
         path: '/products/:id',
-        element: <ProductDetail />
-      }, /* {
+        element: <ProductDetail />,
+      } /* {
         path: '/success',
         element: <Success />
-      }, */
+      }, */,
     ],
   },
 ]);
