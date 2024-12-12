@@ -31,12 +31,16 @@ function Login(props) {
 
   return (
     <div>
-      <Link to="/signup">Go to Signup!</Link>
+      <div className="btn-container">
+        <a href="/signup">
+          <button>Go to Signup!</button>
+        </a>
+      </div>
 
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
         <div>
-          <label htmlFor="email">Email address:</label>
+          <label htmlFor="email">Email address: </label>
           <input
             placeholder="youremail@test.com"
             name="email"
@@ -46,7 +50,7 @@ function Login(props) {
           />
         </div>
         <div>
-          <label htmlFor="pwd">Password:</label>
+          <label htmlFor="pwd">Password: </label>
           <input
             placeholder="******"
             name="password"
