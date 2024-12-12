@@ -61,7 +61,7 @@ const ProductSearch = () => {
   return (
     <main>
       <div className="container">
-        <h2>Our Products</h2>
+        <h2>Our Products!</h2>
         {filteredProducts.length ? (
           <div className="product-list">
             {filteredProducts.map((product) => (
