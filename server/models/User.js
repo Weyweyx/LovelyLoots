@@ -2,10 +2,20 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
-  username: {
+  /* username: {
     type: String,
     required: true,
     unique: true,
+    trim: true,
+  }, */
+  firstName: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
     trim: true,
   },
   email: {
@@ -19,11 +29,11 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 8,
   },
-  role: {
+  /* role: {
     type: String,
     enum: ['customer', 'seller', 'admin'], 
     default: 'customer',
-  },
+  }, */
 }, { timestamps: true });
 
 userSchema.pre('save', async function (next) {

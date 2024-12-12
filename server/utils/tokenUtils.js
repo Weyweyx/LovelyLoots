@@ -9,8 +9,8 @@ const expiration = '2h';
  * @param {Object} user - The user object, typically containing `_id`, `username`, and `email`.
  * @returns {String} - Signed JWT token.
  */
-const generateToken = ({ _id, username, email }) => {
-  const payload = { _id, username, email };
+const generateToken = ({ _id, firstName, lastName, email }) => {
+  const payload = { _id, firstName, lastName, email };
   return jwt.sign(payload, secret, { expiresIn: expiration });
 };
 
