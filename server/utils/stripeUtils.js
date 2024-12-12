@@ -2,7 +2,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 /**
  * Create a Stripe checkout session for processing payments.
- * 
+ *
  * @param {Array} cartItems - Array of items in the cart, each containing `name`, `price`, and `quantity`.
  * @param {String} successUrl - The URL to redirect to after successful payment.
  * @param {String} cancelUrl - The URL to redirect to if payment is canceled.
@@ -15,10 +15,11 @@ const createCheckoutSession = async (cartItems, successUrl, cancelUrl) => {
         currency: 'usd',
         product_data: {
           name: item.name,
+          images: [item.image], // product images
         },
         unit_amount: Math.round(item.price * 100), // Convert dollars to cents
       },
-      quantity: item.quantity,
+      quantity: item.purchaseQuantity || 1, // Ensure quantity fallback
     }));
 
     const session = await stripe.checkout.sessions.create({

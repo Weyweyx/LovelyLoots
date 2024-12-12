@@ -8,7 +8,7 @@ const LandingPage = () => {
       <h1>Welcome to Lovely Loot!</h1>
         <p>At Lovely Loot, we understand the enjoyment of collecting antiques and
             finding amazing vintage items. Let us help you, with just a click of a category search, 
-            you'll be shown antiques that will blow your mind! So get searching for that Lovely Loot!
+            you&apos;ll be shown antiques that will blow your mind! So get searching for that Lovely Loot!
         </p>
       <div className="btn-container">
         <a href="/signup">

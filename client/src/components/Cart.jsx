@@ -7,11 +7,11 @@ import CartItem from "./CartItem";
 import Auth from "../utils/auth";
 import { useStoreContext } from "../utils/GlobalState";
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../utils/actions";
-import "../assets/css/style.css";
+import PropTypes from "prop-types";
 
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
-const Cart = () => {
+const Cart = ({ cartOpen }) => {
   const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
@@ -54,7 +54,7 @@ const Cart = () => {
     });
   }
 
-  if (!state.cartOpen) {
+  if (!cartOpen) {
     return (
       <div onClick={toggleCart}>
         <span role="img" aria-label="trash">
@@ -85,10 +85,16 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <h3>You haven't found any loot yet!</h3>
+        <h3>You haven&apos;t found any loot yet!</h3>
       )}
     </div>
   );
+};
+
+// PropTypes validation
+
+Cart.propTypes = {
+  cartOpen: PropTypes.bool.isRequired,
 };
 
 export default Cart;

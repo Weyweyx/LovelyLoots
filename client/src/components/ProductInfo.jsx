@@ -3,11 +3,10 @@ import { pluralize } from '../utils/helpers';
 import { useStoreContext } from '../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../utils/actions';
 import { idbPromise } from '../utils/helpers';
+import PropTypes from 'prop-types';
 
-function ProductInfo(item) {
+const ProductInfo = ({ _id, image, name, price, quantity, description }) => {
   const [state, dispatch] = useStoreContext();
-
-  const { image, name, _id, price, quantity } = item;
 
   const { cart } = state;
 
@@ -26,16 +25,16 @@ function ProductInfo(item) {
     } else {
       dispatch({
         type: ADD_TO_CART,
-        product: { ...item, purchaseQuantity: 1 },
+        product: { _id, name, image, price, quantity, purchaseQuantity: 1 },
       });
-      idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+      idbPromise('cart', 'put', { _id, name, image, price, quantity, purchaseQuantity: 1 });
     }
   };
 
   return (
     <div>
       <Link to={`/products/${_id}`}>
-        <img alt={name} src={`/images/${image}`} />
+        <img alt={name} src={image} />
         <p>{name}</p>
       </Link>
       <div>
@@ -47,6 +46,17 @@ function ProductInfo(item) {
       <button onClick={addToCart}>Add to cart</button>
     </div>
   );
-}
+};
+
+// PropTypes validation
+
+ProductInfo.propTypes = {
+  _id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired,
+  description: PropTypes.string,
+};
 
 export default ProductInfo;
