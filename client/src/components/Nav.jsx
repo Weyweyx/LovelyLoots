@@ -13,26 +13,11 @@ function Nav() {
           </li>
         </ul>
       );
-    } else {
-      return (
-        <ul>
-          <li>
-            <Link to='/signup'>Signup</Link>
-          </li>
-          <li>
-            <Link to='/login'>Login</Link>
-          </li>
-        </ul>
-      );
-    }
+    } 
   }
 
   return (
     <header>
-      <h1>
-        <Link to='/'>-Shop</Link>
-      </h1>
-
       <nav>{showNavigation()}</nav>
     </header>
   );
