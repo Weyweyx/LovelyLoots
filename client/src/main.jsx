@@ -8,7 +8,8 @@ import NoMatch from './pages/NoMatch.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/SignUp.jsx';
 import ProductDetail from './pages/ProductDetail.jsx';
-//import Success from './pages/Success';
+
+// import Success from './pages/Success';
 
 console.log('Hello?');
 
@@ -33,14 +34,22 @@ const router = createBrowserRouter([
       {
         path: '/products/:id',
         element: <ProductDetail />,
-      } /* {
-        path: '/success',
-        element: <Success />
-      }, */,
+      },
     ],
   },
 ]);
 
+// Mount the React App
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
 );
+
+// Register the Service Worker
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/service-worker.js')
+    .then(() => console.log('Service Worker registered successfully.'))
+    .catch((err) => console.error('Service Worker registration failed:', err));
+}
