@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
 
-function Login(props) {
+function Login() {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
 
@@ -32,15 +32,15 @@ function Login(props) {
   return (
     <div>
       <div className="btn-container">
-        <a href="/signup">
+        <Link to="/signup">
           <button>Go to Signup!</button>
-        </a>
+        </Link>
       </div>
 
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
         <div>
-          <label htmlFor="email">Email address: </label>
+          <label htmlFor="email">Email: </label>
           <input
             placeholder="youremail@test.com"
             name="email"
@@ -64,6 +64,7 @@ function Login(props) {
             <p>The provided credentials are invalid!</p>
           </div>
         ) : null}
+        <br></br>
         <div>
           <button type="submit">Submit</button>
         </div>

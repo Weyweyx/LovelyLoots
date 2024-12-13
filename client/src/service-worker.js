@@ -1,60 +1,73 @@
-const CACHE_NAME = "lovely-loots-cache-v1";
-const urlsToCache = [
-  "/",
-  "/index.html",
-  "/favicon.ico",
-  "/vite.svg",
-  "/src/main.jsx",
-  "/src/assets/css/style.css",
+const CACHE_NAME = 'lovely-loots-cache-v1';
+const DATA_CACHE_NAME = 'lovely-loots-data-cache-v1';
+
+const FILES_TO_CACHE = [
+  '/',
+  '/index.html',
+  '/favicon.ico',
+  '/src/main.jsx',
+  '/src/assets/css/style.css',
+  '/src/assets/images/logo.png',
+  '/manifest.json',
 ];
 
-// Install the service worker
+// Cache Static Assets
 
-self.addEventListener("install", (event) => {
+self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log("Opened cache");
-      return cache.addAll(urlsToCache);
+      console.log('Pre-caching static assets');
+      return cache.addAll(FILES_TO_CACHE);
     })
   );
+  self.skipWaiting();
 });
 
-// Cache and return requests
+// Clean Up Old Caches
 
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-    
-      if (response) {
-        return response;
-      }
-      return fetch(event.request).then((fetchedResponse) => {
-
-        // Clone the response before caching
-
-        const responseToCache = fetchedResponse.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseToCache);
-        });
-        return fetchedResponse;
-      });
-    })
-  );
-});
-
-// Update the service worker
-
-self.addEventListener("activate", (event) => {
-  const cacheWhitelist = [CACHE_NAME];
+self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) =>
-      Promise.all(
-        cacheNames.map((cacheName) => {
-          if (!cacheWhitelist.includes(cacheName)) {
-            return caches.delete(cacheName);
+    caches.keys().then((keyList) => {
+      return Promise.all(
+        keyList.map((key) => {
+          if (key !== CACHE_NAME && key !== DATA_CACHE_NAME) {
+            console.log('Removing old cache', key);
+            return caches.delete(key);
           }
         })
-      )
-    )
+      );
+    })
+  );
+  self.clients.claim();
+});
+
+// Respond with Cache or Network
+
+self.addEventListener('fetch', (event) => {
+  if (event.request.url.includes('/graphql')) {
+
+    // Handle GraphQL requests
+
+    event.respondWith(
+      caches.open(DATA_CACHE_NAME).then((cache) => {
+        return fetch(event.request)
+          .then((response) => {
+            if (response.status === 200) {
+              cache.put(event.request.url, response.clone());
+            }
+            return response;
+          })
+          .catch(() => cache.match(event.request));
+      })
+    );
+    return;
+  }
+
+  // Handle Static Files
+  
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
   );
 });
