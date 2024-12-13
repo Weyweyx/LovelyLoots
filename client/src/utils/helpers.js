@@ -35,11 +35,11 @@ export function idbPromise(storeName, method, object) {
           resolve(object);
           break;
         case "get":
-          const all = store.getAll();
+          { const all = store.getAll();
           all.onsuccess = function () {
             resolve(all.result);
           };
-          break;
+          break; }
         case "delete":
           store.delete(object._id);
           break;
