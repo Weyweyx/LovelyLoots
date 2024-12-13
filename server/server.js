@@ -4,21 +4,22 @@ const cors = require('cors');
 const path = require('path');
 const typeDefs = require('./schemas/typeDefs');
 const resolvers = require('./schemas/resolvers');
+const mongoose = require ('./config/connection');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const mongoose = require('mongoose');
+/* const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/lovely-loots', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-mongoose.connection.on('connected', () =>
+ mongoose.connection('connected', () =>
   console.log('Connected to MongoDB')
 );
-mongoose.connection.on('error', (err) =>
+mongoose.connection('error', (err) =>
   console.error('MongoDB connection error:', err)
-);
+); */
 
 // Enable CORS for requests coming from the frontend running on localhost:5173
 
