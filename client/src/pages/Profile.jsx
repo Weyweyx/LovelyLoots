@@ -2,21 +2,41 @@ import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
 import Auth from "../utils/auth";
-import spinner from "../assets/spinner.gif";
+import spinner from "../assets/images/spinner.gif";
 
 const Profile = () => {
-  const { loading, data } = useQuery(QUERY_USER);
+  // Fetch user data using GraphQL query
+  const { loading, data, error } = useQuery(QUERY_USER);
 
+  // Redirect unauthenticated users to the login page
   useEffect(() => {
     if (!Auth.loggedIn()) {
       window.location.assign("/login");
     }
   }, []);
 
+  // Handle loading state
   if (loading) {
-    return <img src={spinner} alt="loading" />;
+    return (
+      <div>
+        <img src={spinner} alt="loading" />
+        <p>Loading your profile...</p>
+      </div>
+    );
   }
 
+  // Handle errors from the GraphQL query
+  if (error) {
+    console.error("Error fetching user data:", error.message);
+    return (
+      <div>
+        <h2>Error</h2>
+        <p>There was an issue fetching your profile data. Please try again later.</p>
+      </div>
+    );
+  }
+
+  // Destructure user data
   const user = data?.user || {};
 
   return (
@@ -51,7 +71,7 @@ const Profile = () => {
           ))}
         </div>
       ) : (
-        <h3>You haven't placed any orders yet!</h3>
+        <h3>You haven&apos;t placed any orders yet!</h3>
       )}
     </div>
   );

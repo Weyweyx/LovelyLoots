@@ -9,7 +9,7 @@ import { idbPromise } from "../utils/helpers";
 const ProductSearch = () => {
   const [state, dispatch] = useStoreContext();
 
-  const { categories, currentCategory } = state;
+  const { categories, currentCategory, products } = state;
 
   const { loading: categoryLoading, data: categoryData } = useQuery(QUERY_CATEGORIES);
   const { loading: productLoading, data: productData } = useQuery(QUERY_PRODUCTS, {
@@ -54,7 +54,7 @@ const ProductSearch = () => {
     }
   }, [productData, productLoading, dispatch]);
 
-  const filteredProducts = state.products.filter((product) =>
+  const filteredProducts = products.filter((product) =>
     currentCategory ? product.category._id === currentCategory : true
   );
 

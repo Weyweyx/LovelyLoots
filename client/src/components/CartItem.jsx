@@ -1,6 +1,7 @@
 import { useStoreContext } from '../utils/GlobalState';
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from '../utils/actions';
 import { idbPromise } from '../utils/helpers';
+import PropTypes from 'prop-types';
 
 const CartItem = ({ item }) => {
   const [, dispatch] = useStoreContext();
@@ -34,7 +35,7 @@ const CartItem = ({ item }) => {
   return (
     <div>
       <div>
-        <img src={`/images/${item.image}`} alt='' />
+        <img src={item.image} alt={item.name} />
       </div>
       <div>
         <div>
@@ -43,14 +44,14 @@ const CartItem = ({ item }) => {
         <div>
           <span>Qty:</span>
           <input
-            type='number'
-            placeholder='1'
+            type="number"
+            placeholder="1"
             value={item.purchaseQuantity}
             onChange={onChange}
           />
           <span
-            role='img'
-            aria-label='trash'
+            role="img"
+            aria-label="trash"
             onClick={() => removeFromCart(item)}
           >
             🗑️
@@ -59,6 +60,18 @@ const CartItem = ({ item }) => {
       </div>
     </div>
   );
+};
+
+// Prop Types validation
+
+CartItem.propTypes = {
+  item: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    purchaseQuantity: PropTypes.number.isRequired,
+    image: PropTypes.string,
+  }).isRequired,
 };
 
 export default CartItem;

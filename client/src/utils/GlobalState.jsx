@@ -8,7 +8,9 @@ export function useProductReducer(initialState) {
   return useReducer(reducer, initialState);
 }
 
-const StoreProvider = ({ value = [], ...props }) => {
+//I removed the unused variable - Sam.
+
+const StoreProvider = (props) => {
   const [state, dispatch] = useProductReducer({
     products: [],
     cart: [],
