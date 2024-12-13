@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 const Product = require("../server/models/Product");
 const Category = require("../server/models/Category");
 const User = require("../server/models/User");
@@ -6,6 +7,7 @@ const Order = require("../server/models/Order");
 
 const seedDatabase = async () => {
   try {
+    
     // Connect to MongoDB
 
     await mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/lovely-loots", {
@@ -32,19 +34,23 @@ const seedDatabase = async () => {
     ]);
     console.log("Categories seeded");
 
+    // Hash passwords before seeding users
+
+    const hashedPassword = await bcrypt.hash("password123", 10);
+
     // Seed users
 
     const users = await User.insertMany([
       {
         username: "customer1",
         email: "customer1@example.com",
-        password: "password123",
+        password: hashedPassword,
         role: "customer",
       },
       {
         username: "seller1",
         email: "seller1@example.com",
-        password: "password123",
+        password: hashedPassword,
         role: "seller",
       },
     ]);
