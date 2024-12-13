@@ -10,6 +10,8 @@
     --font_1: "Amoera", sans-serif;
     --font_2: "Anuphan", sans-serif;
 
+    --size_md: 1.5rem;
+
     font-family: var(--font_2);
     line-height: 1.5;
     font-weight: 400;
@@ -40,6 +42,7 @@
     display: flex;
     min-width: 320px;
     min-height: 100vh;
+    max-height: 100vh;
   }
   
   h1 {
@@ -64,6 +67,22 @@
   button:focus,
   button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+  }
+
+  #root{
+    padding: 2.5rem 2.5vw;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+
+  }
+
+  .app-content{
+    width: 100%;
+    height: 100%;
+    border: 1px red solid;
   }
   
   @media (prefers-color-scheme: light) {

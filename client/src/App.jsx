@@ -32,7 +32,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div>
+      <div className='app-content'>
         <StoreProvider>
           <Nav />
           <Outlet />
