@@ -7,7 +7,10 @@
     --color_light: white;
     --color_dark: black;
 
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    --font_1: "Amoera", sans-serif;
+    --font_2: "Anuphan", sans-serif;
+
+    font-family: var(--font_2);
     line-height: 1.5;
     font-weight: 400;
   
