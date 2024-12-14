@@ -30,16 +30,10 @@ function Login() {
   };
 
   return (
-    <div>
-      <div className="btn-container">
-        <Link to="/signup">
-          <button>Go to Signup!</button>
-        </Link>
-      </div>
-
+    <div className="su">
       <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div>
+      <form className= "su-form" onSubmit={handleFormSubmit}>
+        <div className= "su-form-row">
           <label htmlFor="email">Email: </label>
           <input
             placeholder="youremail@test.com"
@@ -49,7 +43,7 @@ function Login() {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="su-form-row">
           <label htmlFor="pwd">Password: </label>
           <input
             placeholder="******"
@@ -65,10 +59,15 @@ function Login() {
           </div>
         ) : null}
         <br></br>
-        <div>
+        <div className="su-form-btn">
           <button type="submit">Submit</button>
         </div>
       </form>
+      <div className="su-btn">
+        <Link to="/signup">
+          <button>Go to Signup!</button>
+        </Link>
+      </div>
     </div>
   );
 }
