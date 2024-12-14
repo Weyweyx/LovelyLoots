@@ -8,13 +8,14 @@
     "server": "nodemon server/server.js",
     "client": "cd client && npm run dev",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "seed": "node database/seed.js",
+    "seed": "node server/database/seed.js",
     "build": "cd client && npm run build",
     "install": "cd client && npm i && cd ../server && npm i"
   },
   "author": "Caroline Bost, Sam Mina, and Kevin Wolf",
   "license": "None",
   "dependencies": {
+    "@apollo/server": "^4.11.2",
     "concurrently": "^6.2.1"
   },
   "devDependencies": {
