@@ -56,16 +56,17 @@
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 0.25em 1em;
+    margin: 0;
     font-size: 1em;
     font-weight: 500;
-    font-family: inherit;
-    background-color: var(--color_dark);
+    font-family: var(--font_1);
+    background-color:rgb(140, 140, 218);
     cursor: pointer;
     transition: border-color 0.25s;
-    color: var(--color_light);
+    color: var(--color_dark);
   }
   button:hover {
-    border-color: var(--color_4);
+    border-color: var(--color_dark);
   }
   button:focus,
   button:focus-visible {

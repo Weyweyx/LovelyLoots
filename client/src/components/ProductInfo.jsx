@@ -32,13 +32,13 @@ const ProductInfo = ({ _id, image, name, price, quantity, description }) => {
   };
 
   return (
-    <div>
+    <div className='pi'>
       <Link to={`/products/${_id}`}>
         <img alt={name} src={image} />
         <p>{name}</p>
       </Link>
-      <div>
-        <div>
+      <div className='pi-product'>
+        <div className='pi-product-info'>
           {quantity} {pluralize('item', quantity)} in stock
         </div>
         <span>${price}</span>
