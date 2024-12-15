@@ -15,6 +15,9 @@ const server = new ApolloServer({
   resolvers,
 });
 
+const cors = require('cors');
+app.use(cors());
+
 // Start the Apollo server and apply middleware to Express
 
 const startApolloServer = async () => {
