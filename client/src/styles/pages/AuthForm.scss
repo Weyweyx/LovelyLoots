@@ -3,16 +3,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  &-background{
+  &-background {
     display: flex;
-    position:absolute;
+    position: absolute;
     align-items: center;
     top: 0;
-    & img{
-    object-fit: cover;
-    width: 50%;
-    height: 10%;
-    justify-content: center;
+    & img {
+      object-fit: cover;
+      width: 50%;
+      height: 10%;
+      justify-content: center;
     }
   }
   &-title {
@@ -25,15 +25,18 @@
   }
   &-form {
     //add styles
+    color: aliceblue;
     &-row {
-        //add styles
+      //add styles
+      display: flex;
     }
-    &-btn{
-        //add
-
+    &-btn {
+      //add
+      display: flex;
     }
   }
-  &-btn{
+  &-btn {
     //add
+    padding: auto;
   }
 }
