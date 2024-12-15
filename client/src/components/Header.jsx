@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navigation from "./Navigation";
-import logo from "../assets/images/logo.png";
+import Navigation from "./Nav";
+//import logo from "../assets/images/logo.png";
 
 const Header = () => {
   return (
@@ -11,9 +11,9 @@ const Header = () => {
 
       <div className="header-brand">
         <Link to="/">
-          <img src={logo} alt="Lovely Loots Logo" className="header-logo" />
+          {/* <img src={logo} alt="Lovely Loots Logo" className="header-logo" /> */}
         </Link>
-        <h1 className="header-title">Lovely Loots</h1>
+        <h1 className="header-brand-title">Lovely Loots</h1>
       </div>
 
       {/* Navigation Component */}
@@ -21,6 +21,14 @@ const Header = () => {
       <nav>
         <Navigation />
       </nav>
+      <div className="header-btns">
+        <a href="/signup">
+          <button>Sign Up</button>
+        </a>
+        <a href="/login">
+          <button>Login</button>
+        </a>
+      </div>
     </header>
   );
 };

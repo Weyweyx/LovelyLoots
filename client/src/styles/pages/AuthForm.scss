@@ -1,0 +1,42 @@
+.su {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &-background {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    top: 0;
+    & img {
+      object-fit: cover;
+      width: 50%;
+      height: 10%;
+      justify-content: center;
+    }
+  }
+  &-title {
+    //add styles
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: var(--font_1);
+    color: var(--color_dark);
+  }
+  &-form {
+    //add styles
+    color: aliceblue;
+    &-row {
+      //add styles
+      display: flex;
+    }
+    &-btn {
+      //add
+      display: flex;
+    }
+  }
+  &-btn {
+    //add
+    padding: auto;
+  }
+}

@@ -56,7 +56,7 @@ const Cart = ({ cartOpen }) => {
 
   if (!cartOpen) {
     return (
-      <div onClick={toggleCart}>
+      <div className="cart-closed" onClick={toggleCart}>
         <span role="img" aria-label="trash">
           🛒
         </span>
@@ -65,27 +65,31 @@ const Cart = ({ cartOpen }) => {
   }
 
   return (
-    <div>
+    <div className="cart">
       <div onClick={toggleCart}>[close]</div>
       <h2>Shopping Cart</h2>
       {state.cart.length ? (
-        <div>
+        <div className="cart-items">
           {state.cart.map((item) => (
             <CartItem key={item._id} item={item} />
           ))}
 
-          <div>
+          <div className="cart-total">
             <strong>Total: ${calculateTotal()}</strong>
 
             {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
+              <button className="cart-total-sub" onClick={submitCheckout}>
+                Checkout
+              </button>
             ) : (
               <span>(log in to check out)</span>
             )}
           </div>
         </div>
       ) : (
-        <h3>You haven&apos;t found any loot yet!</h3>
+        <div className="cart-empty">
+          <h3>You haven&apos;t found any loot yet!</h3>
+        </div>
       )}
     </div>
   );

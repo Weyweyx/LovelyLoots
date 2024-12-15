@@ -1,0 +1,20 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2.5rem;
+    width: 100%;
+    &-brand{
+        &-title{
+            font-size: var(--size_md);
+            font-family: var(--font_1);
+            color: var(--color_dark);
+        }
+    }
+    &-btns {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+    }
+}

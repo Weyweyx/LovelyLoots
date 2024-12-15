@@ -6,7 +6,12 @@ import { ADD_USER } from "../utils/mutations";
 import { useNavigate } from "react-router-dom";
 
 function Signup() {
-  const [formState, setFormState] = useState({ firstName: "", lastName: "", email: "", password: "" });
+  const [formState, setFormState] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
   const [errors, setErrors] = useState({});
   const [addUser] = useMutation(ADD_USER);
   const navigate = useNavigate();
@@ -15,12 +20,17 @@ function Signup() {
     event.preventDefault();
 
     const validationErrors = {};
-    if (!formState.firstName) validationErrors.firstName = 'First name is required!';
-    if (!formState.lastName) validationErrors.lastName = 'Last name is required!';
-    if (!formState.email) validationErrors.email = 'Email is required!';
-    else if (!/\S+@\S+/.test(formState.email)) validationErrors.email = 'Email is invalid!';
-    if (!formState.password) validationErrors.password = 'Password is required!';
-    else if (formState.password.length < 6) validationErrors.password = 'Password must be at least six characters!';
+    if (!formState.firstName)
+      validationErrors.firstName = "First name is required!";
+    if (!formState.lastName)
+      validationErrors.lastName = "Last name is required!";
+    if (!formState.email) validationErrors.email = "Email is required!";
+    else if (!/\S+@\S+/.test(formState.email))
+      validationErrors.email = "Email is invalid!";
+    if (!formState.password)
+      validationErrors.password = "Password is required!";
+    else if (formState.password.length < 6)
+      validationErrors.password = "Password must be at least six characters!";
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -47,9 +57,8 @@ function Signup() {
       setErrors({ general: "An error occurred during signup. Please try again!" });
     }
 
-    console.log('SignUp form submitted', formState);
+    console.log("SignUp form submitted", formState);
   };
-
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -60,16 +69,16 @@ function Signup() {
   };
 
   return (
-    <div>
-      <div className="btn-container">
-        <Link to="/login">
-          <button>Go to Login!</button>
-        </Link>
-      </div>
+    <div className="su">
+      <div className="su-background">
+        <img src="/hero__arch.webp" alt="" />
 
-      <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div>
+      </div>
+      <div className="su-title">
+        <h2>Signup</h2>
+      </div>
+      <form className="su-form" onSubmit={handleFormSubmit}>
+        <div className="su-form-row">
           <label htmlFor="firstName">First Name: </label>
           <input
             placeholder="First"
@@ -81,7 +90,7 @@ function Signup() {
           />
           {errors.firstName && <p>{errors.firstName}</p>}
         </div>
-        <div>
+        <div className="su-form-row">
           <label htmlFor="lastName">Last Name: </label>
           <input
             placeholder="Last"
@@ -93,7 +102,7 @@ function Signup() {
           />
           {errors.lastName && <p>{errors.lastName}</p>}
         </div>
-        <div>
+        <div className="su-form-row">
           <label htmlFor="email">Email: </label>
           <input
             placeholder="youremail@test.com"
@@ -105,7 +114,7 @@ function Signup() {
           />
           {errors.email && <p>{errors.email}</p>}
         </div>
-        <div>
+        <div className="su-form-row">
           <label htmlFor="pwd">Password: </label>
           <input
             placeholder="******"
@@ -118,10 +127,15 @@ function Signup() {
           {errors.password && <p>{errors.password}</p>}
         </div>
         <br></br>
-        <div>
+        <div className="su-form-btn">
           <button type="submit">Submit</button>
         </div>
       </form>
+      <div className="su-btn">
+        <Link to="/login">
+          <button>Go to Login!</button>
+        </Link>
+      </div>
     </div>
   );
 }
