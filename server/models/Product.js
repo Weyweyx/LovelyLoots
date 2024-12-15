@@ -24,7 +24,6 @@ const productSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['fashion', 'home', 'toys', 'others']
   },
   image: {
     type: String,
@@ -38,4 +37,6 @@ const productSchema = new mongoose.Schema({
   },
 }, { timestamps: true });
 
-module.exports = mongoose.model('Product', productSchema);
+const Product = mongoose.model('Product', productSchema);
+
+module.exports = Product;
