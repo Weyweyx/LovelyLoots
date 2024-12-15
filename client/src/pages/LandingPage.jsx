@@ -1,7 +1,5 @@
-import ProductList from "../components/ProductList";
-import CategoryNav from "../components/CategoryNav";
-import Cart from "../components/Cart";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const LandingPage = () => {
   return (
@@ -12,11 +10,12 @@ const LandingPage = () => {
       <Header></Header>
       <div className="lp-cta"> 
         <h1>Welcome to Lovely Loots</h1>
-        <p>At Lovely Loot, we understand the enjoyment of collecting antiques and
+        <p>At Lovely Loots, we understand the enjoyment of collecting antiques and
             finding amazing vintage items. Let us help you, with just a click of a category search, 
-            you&apos;ll be shown antiques that will blow your mind! So get searching for that Lovely Loot!
+            you&apos;ll be shown vintage products that we are sure you will love! So get searching for that Lovely Loot!
         </p>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

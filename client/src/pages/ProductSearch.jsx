@@ -5,6 +5,10 @@ import { useStoreContext } from "../utils/GlobalState";
 import { UPDATE_CATEGORIES, UPDATE_PRODUCTS } from "../utils/actions";
 import ProductItem from "../components/ProductInfo";
 import { idbPromise } from "../utils/helpers";
+import CategoryNav from "../components/CategoryNav";
+import TitleHeader from "../components/TitleHeader";
+import Footer from "../components/Footer";
+import Nav from "../components/Nav";
 
 const ProductSearch = () => {
   const [state, dispatch] = useStoreContext();
@@ -61,6 +65,9 @@ const ProductSearch = () => {
   return (
     <main>
       <div className="container">
+        <TitleHeader></TitleHeader> <Nav></Nav>
+        <br></br>
+        <CategoryNav></CategoryNav> {/* make sure this looks right after being able to login is fixed */}
         <h2>Our Products!</h2>
         {filteredProducts.length ? (
           <div className="product-list">
@@ -69,9 +76,10 @@ const ProductSearch = () => {
             ))}
           </div>
         ) : (
-          <h3>Sorry, no loot found in this category!</h3>
+          <h3>Sorry, no loot found in this category!</h3> /* code this so if no products are found this is shown */
         )}
       </div>
+      <Footer></Footer>
     </main>
   );
 };

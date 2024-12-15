@@ -5,6 +5,9 @@ import { ADD_PRODUCT, DELETE_PRODUCT } from "../utils/mutations";
 import { useStoreContext } from "../utils/GlobalState";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { idbPromise } from "../utils/helpers";
+/* import TitleHeader from "../components/TitleHeader";
+import Footer from "../components/Footer";
+import Nav from "../components/Nav";   don't know if we'll need this page at all -maybe future development*/
 
 const SellerDashboard = () => {
 

@@ -3,6 +3,8 @@ import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
+import TitleHeader from "../components/TitleHeader";
+import Footer from "../components/Footer";
 
 function Login() {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -31,6 +33,7 @@ function Login() {
 
   return (
     <div className="su">
+      <TitleHeader></TitleHeader>
       <h2>Login</h2>
       <form className= "su-form" onSubmit={handleFormSubmit}>
         <div className= "su-form-row">
@@ -68,6 +71,7 @@ function Login() {
           <button>Go to Signup!</button>
         </Link>
       </div>
+      <Footer></Footer>
     </div>
   );
 }

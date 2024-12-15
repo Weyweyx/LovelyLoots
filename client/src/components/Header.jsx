@@ -13,7 +13,7 @@ const Header = () => {
         <Link to="/">
           {/* <img src={logo} alt="Lovely Loots Logo" className="header-logo" /> */}
         </Link>
-        <h1 className="header-brand-title">Lovely Loots</h1>
+        <Link to='/' className="header-brand-title">Lovely Loots</Link>
       </div>
 
       {/* Navigation Component */}
