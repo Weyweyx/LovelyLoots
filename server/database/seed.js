@@ -22,12 +22,15 @@ const seedDatabase = async () => {
 
       const categories = await Category.insertMany([
         {
-          name: "fashion",
-          description: "Antique clothing and accessories.",
+          name: "Fashion",
+          description: "Vintage and antique clothing.",
         },
-        { name: "home", description: "Vintage furniture and decor." },
-        { name: "toys", description: "Collectible antique toys." },
-        { name: "others", description: "Miscellaneous antique items." },
+        { name: "Furniture", description: "Vintage furniture." },
+        { name: "Decor", description: "Vintage decor and antiques." },
+        { name: "Kitchenware", description: "Vintage kitchenware." }
+        { name: "Accessories", description: "Vinatge watches, glasses etc." },
+        { name: "Jewelry", description: "Antique and vintage necklaces, earrings etc." },
+        { name: "All", description: "All vintage products." },
       ]);
       console.log("Categories seeded");
 
@@ -56,7 +59,7 @@ const seedDatabase = async () => {
           name: "Vintage Watch",
           description: "A timeless piece from the 1950s.",
           price: 250.0,
-          stock: 10,
+          stock: 1,
           category: categories[0]._id,
           seller: users[1]._id,
           image: "vintage-watch.png",
