@@ -4,6 +4,7 @@
     --color_3: #e2d686;
     --color_4: #ffdf64;
     --color_5: #877b66;
+    --color_6: #f9edcc;
     --color_light: white;
     --color_dark: black;
 
@@ -11,6 +12,7 @@
     --font_2: "Anuphan", sans-serif;
 
     --size_md: 1.5rem;
+    --size_header: 2.5rem;
 
     font-family: var(--font_2);
     line-height: 1.5;
@@ -18,7 +20,7 @@
   
     color-scheme: light dark;
     color: var(--color_light);
-    background-color: var(--color_dark);
+    background-color: var(--color_6);
   
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -28,7 +30,7 @@
   
   a {
     font-weight: 500;
-    color: var(--color_2);
+    color: var(--color_light);
     text-decoration: inherit;
   }
   a:hover {
@@ -46,23 +48,24 @@
   }
   
   h1 {
-    font-size: 3.2em;
+    font-size: var(--size_header);
     line-height: 1.1;
   }
   
   button {
     border-radius: 8px;
     border: 1px solid transparent;
-    padding: 0.6em 1.2em;
+    padding: 0.25em 1em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: var(--color_5);
+    background-color: var(--color_dark);
     cursor: pointer;
     transition: border-color 0.25s;
+    color: var(--color_light);
   }
   button:hover {
-    border-color: var(--color_2);
+    border-color: var(--color_4);
   }
   button:focus,
   button:focus-visible {
