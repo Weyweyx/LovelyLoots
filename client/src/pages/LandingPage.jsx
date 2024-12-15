@@ -11,7 +11,7 @@ const LandingPage = () => {
       </div>
       <Header></Header>
       <div className="lp-cta"> 
-        <h1>Welcome to Lovely Loot</h1>
+        <h1>Welcome to Lovely Loots</h1>
         <p>At Lovely Loot, we understand the enjoyment of collecting antiques and
             finding amazing vintage items. Let us help you, with just a click of a category search, 
             you&apos;ll be shown antiques that will blow your mind! So get searching for that Lovely Loot!

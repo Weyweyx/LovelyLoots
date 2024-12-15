@@ -69,6 +69,10 @@ function Signup() {
 
   return (
     <div className="su">
+      <div className="su-background">
+        <img src="/hero__arch.webp" alt="" />
+
+      </div>
       <div className="su-title">
         <h2>Signup</h2>
       </div>
