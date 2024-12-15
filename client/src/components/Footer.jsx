@@ -7,7 +7,7 @@ const Footer = () => {
       {/* Branding */}
 
       <div className="footer-brand">
-        <p>&copy; {new Date().getFullYear()} Lovely Loots. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} © 2024 Lovely Loots. All rights reserved.</p>
       </div>
 
       {/* Quick Links */}
