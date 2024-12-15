@@ -13,6 +13,9 @@ import {
 } from "../utils/actions";
 import { QUERY_PRODUCTS } from "../utils/queries";
 import { idbPromise } from "../utils/helpers";
+import TitleHeader from "../components/TitleHeader";
+import Footer from "../components/Footer";
+import Nav from "../components/Nav";
 
 // import spinner from '../assets/spinner.gif';
 
@@ -80,6 +83,7 @@ const ProductDetail = ({ spinner }) => {
 
   return (
     <div className="pd">
+      <TitleHeader></TitleHeader> <Nav></Nav>
       {currentProduct && cart ? (
         <div className="pd-content">
           <div className="pd-content-btn">
@@ -113,6 +117,7 @@ const ProductDetail = ({ spinner }) => {
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
       <Cart />
+      <Footer></Footer>
     </div>
   );
 };
