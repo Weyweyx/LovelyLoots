@@ -33,15 +33,15 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <div>
-      <div>
+    <div className='cart-item'>
+      <div className='cart-item-img'>
         <img src={item.image} alt={item.name} />
       </div>
-      <div>
-        <div>
+      <div className='cart-item-info'>
+        <div className='cart-item-info-details'>
           {item.name}, ${item.price}
         </div>
-        <div>
+        <div className='cart-item-info-qty'>
           <span>Qty:</span>
           <input
             type="number"
