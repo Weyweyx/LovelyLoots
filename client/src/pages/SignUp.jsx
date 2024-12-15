@@ -4,6 +4,8 @@ import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 import { useNavigate } from "react-router-dom";
+import TitleHeader from "../components/TitleHeader";
+import Footer from "../components/Footer";
 
 function Signup() {
   const [formState, setFormState] = useState({
@@ -70,6 +72,7 @@ function Signup() {
 
   return (
     <div className="su">
+      <TitleHeader></TitleHeader>
       <div className="su-background">
         <img src="/hero__arch.webp" alt="" />
 
@@ -136,6 +139,7 @@ function Signup() {
           <button>Go to Login!</button>
         </Link>
       </div>
+      <Footer></Footer>
     </div>
   );
 }

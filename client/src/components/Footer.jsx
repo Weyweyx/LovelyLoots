@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -7,14 +8,13 @@ const Footer = () => {
       {/* Branding */}
 
       <div className="footer-brand">
-        <p>&copy; {new Date().getFullYear()} © 2024 Lovely Loots. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Lovely Loots. All rights reserved.</p>
       </div>
 
       {/* Quick Links */}
 
       <div className="footer-links">
-        <a href="/about">About Us</a>
-        <a href="/contact">Contact</a>
+        <Link to="/contact">Contact</Link>
       </div>
     </footer>
   );
