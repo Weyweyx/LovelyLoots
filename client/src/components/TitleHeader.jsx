@@ -11,7 +11,7 @@ const TitleHeader = () => {
         <Link to="/">
           {/* <img src={logo} alt="Lovely Loots Logo" className="header-logo" /> */}
         </Link>
-        <Link to="/" className="header-brand-title">
+        <Link to="/productsearch" className="header-brand-title">
           Lovely Loots
         </Link>
       </div>

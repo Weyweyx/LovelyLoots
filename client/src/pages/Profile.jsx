@@ -3,6 +3,9 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
 import Auth from "../utils/auth";
 import spinner from "../assets/images/spinner.gif";
+import TitleHeader from "../components/TitleHeader";
+import Footer from "../components/Footer";
+import Nav from "../components/Nav";
 
 const Profile = () => {
   // Fetch user data using GraphQL query
@@ -41,6 +44,7 @@ const Profile = () => {
 
   return (
     <div>
+      <TitleHeader></TitleHeader> <Nav></Nav>
       <h2>Your Profile</h2>
       <div>
         <p>
@@ -73,6 +77,7 @@ const Profile = () => {
       ) : (
         <h3>You haven&apos;t placed any orders yet!</h3>
       )}
+      <Footer></Footer>
     </div>
   );
 };
