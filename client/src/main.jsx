@@ -8,6 +8,7 @@ import NoMatch from './pages/NoMatch.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/SignUp.jsx';
 import ProductDetail from './pages/ProductDetail.jsx';
+import ProductSearch from './pages/ProductSearch.jsx';
 
 // import Success from './pages/Success';
 
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: '/products/:id',
         element: <ProductDetail />,
+      },
+      {
+        path: '/productsearch',
+        element: <ProductSearch />,
       },
     ],
   },

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [formState, setFormState] = useState({
@@ -13,6 +14,7 @@ function Signup() {
   });
   const [errors, setErrors] = useState({});
   const [addUser] = useMutation(ADD_USER);
+  const navigate = useNavigate();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -38,7 +40,7 @@ function Signup() {
     try {
       // proceed with mutation if validation passes
       // here (line 30) is where an error occurs
-      const mutationResponse = await addUser({
+     const mutationResponse = await addUser({
         variables: {
           firstName: formState.firstName,
           lastName: formState.lastName,
@@ -48,12 +50,11 @@ function Signup() {
       });
 
       const token = mutationResponse.data.addUser.token;
-      Auth.login(token); // Login the user after successful signup
+      Auth.login(token);  // Login the user after successful signup
+      navigate("/productsearch");
     } catch (e) {
-      console.error("Error during signup:", e);
-      setErrors({
-        general: "An error occurred during signup. Please try again!",
-      });
+      //console.error("Error during signup:", e);
+      setErrors({ general: "An error occurred during signup. Please try again!" });
     }
 
     console.log("SignUp form submitted", formState);

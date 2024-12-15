@@ -1,4 +1,3 @@
-
 const typeDefs = `
   type User {
     _id: ID
@@ -6,6 +5,11 @@ const typeDefs = `
     lastName: String
     email: String
     password: String
+  }
+
+  type Auth {
+    token: String
+    user: User
   }
 
   type Product {
@@ -40,7 +44,7 @@ const typeDefs = `
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): User
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     addProduct(
       name: String!
       description: String!
