@@ -67,6 +67,7 @@ const ProductSearch = () => {
     <TitleHeader></TitleHeader> <Nav></Nav>
       <div className="ps">
         <h2>Our Products</h2>
+      </div>
       <div className="container">
         <br></br>
         <CategoryNav></CategoryNav> {/* make sure this looks right after being able to login is fixed */}

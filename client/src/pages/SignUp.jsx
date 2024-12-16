@@ -42,7 +42,7 @@ function Signup() {
     try {
       // proceed with mutation if validation passes
       // here (line 30) is where an error occurs
-     const mutationResponse = await addUser({
+      const mutationResponse = await addUser({
         variables: {
           firstName: formState.firstName,
           lastName: formState.lastName,
@@ -52,11 +52,13 @@ function Signup() {
       });
 
       const token = mutationResponse.data.addUser.token;
-      Auth.login(token);  // Login the user after successful signup
+      Auth.login(token); // Login the user after successful signup
       navigate("/productsearch");
     } catch (e) {
       //console.error("Error during signup:", e);
-      setErrors({ general: "An error occurred during signup. Please try again!" });
+      setErrors({
+        general: "An error occurred during signup. Please try again!",
+      });
     }
 
     console.log("SignUp form submitted", formState);
@@ -75,7 +77,6 @@ function Signup() {
       <TitleHeader></TitleHeader>
       <div className="su-background">
         <img src="/hero__arch.webp" alt="" />
-
       </div>
       <div className="su-title">
         <h2></h2>
@@ -84,7 +85,7 @@ function Signup() {
         <div className="su-form-row">
           <label htmlFor="firstName">First Name: </label>
           <input
-            placeholder=""
+            placeholder="first name"
             name="firstName"
             type="text"
             id="firstName"
@@ -96,7 +97,7 @@ function Signup() {
         <div className="su-form-row">
           <label htmlFor="lastName">Last Name: </label>
           <input
-            placeholder=""
+            placeholder="last name"
             name="lastName"
             type="text"
             id="lastName"
@@ -108,7 +109,7 @@ function Signup() {
         <div className="su-form-row">
           <label htmlFor="email">Email: </label>
           <input
-            placeholder=""
+            placeholder="youremail@example.com"
             name="email"
             type="email"
             id="email"
@@ -120,7 +121,7 @@ function Signup() {
         <div className="su-form-row">
           <label htmlFor="pwd">Password: </label>
           <input
-            placeholder=""
+            placeholder="******"
             name="password"
             type="password"
             id="pwd"
@@ -132,13 +133,11 @@ function Signup() {
         <br></br>
         <div className="su-form-btn">
           <button type="submit">Submit</button>
+          <Link to="/login">
+            <button>Go to Login</button>
+          </Link>
         </div>
       </form>
-      <div className="su-btn">
-        <Link to="/login">
-          <button>Go to Login</button>
-        </Link>
-      </div>
       <Footer></Footer>
     </div>
   );
