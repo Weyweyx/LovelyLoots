@@ -51,11 +51,23 @@ const seedDatabase = async () => {
           password: "password123",
         },
         {
-          firstname: "Klaudia",
+          firstName: "Klaudia",
           lastName: "Paw",
           email: "patkpaw@gmail.com",
           password: "password123",
-        }
+        },
+        {
+          firstName: "Maxine",
+          lastName: "Rose",
+          email: "mcrb1199@gmail.com",
+          password: "password123",
+        },
+        {
+          firstName: "Ethan",
+          lastName: "Morrical",
+          email: "neondarkness711@gmail.com",
+          password: "password123",
+        },
       ]);
       console.log("Users seeded");
 
@@ -74,7 +86,7 @@ const seedDatabase = async () => {
         {
           name: "Antique Chair",
           description: "Beautiful handcrafted chair from the 1800s.",
-          price: 450.0,
+          price: 400.0,
           stock: 5,
           category: categories[1,6]._id,
           seller: users[1]._id,
@@ -92,12 +104,39 @@ const seedDatabase = async () => {
         {
           name: "Antique Floral Picture Frame",
           description: "1950s antique circular picture frame",
-          price: 45.00,
+          price: 60.00,
           stock: 1,
           category: categories[2,6],
+          seller: users[2]._id,
+          /* ADD IMAGE */
+        },
+        {
+          name: "Antqiue Pearl Ring",
+          description: "One of a kind ring from the 1920s with three real pearls.",
+          price: 875.00,
+          stock: 1,
+          category: categories[5,6],
           seller: users[3]._id,
           /* ADD IMAGE */
         },
+        {
+          name: "",
+          description: "",
+          price ,
+          stock: ,
+          category: ,
+          seller: ,
+          /* ADD IMAGE */
+        },
+        {
+          name: "",
+          description: "",
+          price: ,
+          stock: ,
+          category: ,
+          seller: ,
+          /* ADD IMAGE */
+        }
       ]);
       console.log("Products seeded");
 
