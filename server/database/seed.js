@@ -27,10 +27,11 @@ const seedDatabase = async () => {
         },
         { name: "Furniture", description: "Vintage furniture." },
         { name: "Decor", description: "Vintage decor and antiques." },
-        { name: "Kitchenware", description: "Vintage kitchenware." }
+        { name: "Kitchenware", description: "Vintage kitchenware." },
         { name: "Accessories", description: "Vinatge watches, glasses etc." },
         { name: "Jewelry", description: "Antique and vintage necklaces, earrings etc." },
         { name: "All", description: "All vintage products." },
+        { name: "Other", description: "Miscellaneous vintage items." },
       ]);
       console.log("Categories seeded");
 
@@ -49,6 +50,12 @@ const seedDatabase = async () => {
           email: "seller1@example.com",
           password: "password123",
         },
+        {
+          firstname: "Klaudia",
+          lastName: "Paw",
+          email: "patkpaw@gmail.com",
+          password: "password123",
+        }
       ]);
       console.log("Users seeded");
 
@@ -60,7 +67,7 @@ const seedDatabase = async () => {
           description: "A timeless piece from the 1950s.",
           price: 250.0,
           stock: 1,
-          category: categories[0]._id,
+          category: categories[4,6]._id,
           seller: users[1]._id,
           image: "vintage-watch.png",
         },
@@ -69,9 +76,27 @@ const seedDatabase = async () => {
           description: "Beautiful handcrafted chair from the 1800s.",
           price: 450.0,
           stock: 5,
-          category: categories[1]._id,
+          category: categories[1,6]._id,
           seller: users[1]._id,
           image: "antique-chair.png",
+        },
+        {
+          name: "Vintage Polaroid Camera",
+          description: "Fully functional 1980s Polaroid Impulse camera",
+          price: 200.00,
+          stock: 1,
+          category: categories[6,7]._id,
+          seller: users[3]._id,
+          /* ADD IMAGE */
+        },
+        {
+          name: "Antique Floral Picture Frame",
+          description: "1950s antique circular picture frame",
+          price: 45.00,
+          stock: 1,
+          category: categories[2,6],
+          seller: users[3]._id,
+          /* ADD IMAGE */
         },
       ]);
       console.log("Products seeded");
