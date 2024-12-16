@@ -35,11 +35,11 @@ function Login() {
     <div className="su">
       <TitleHeader></TitleHeader>
       <h2>Login</h2>
-      <form className= "su-form" onSubmit={handleFormSubmit}>
-        <div className= "su-form-row">
+      <form className="su-form" onSubmit={handleFormSubmit}>
+        <div className="su-form-row">
           <label htmlFor="email">Email: </label>
           <input
-            placeholder="youremail@test.com"
+            placeholder="youremail@example.com"
             name="email"
             type="email"
             id="email"
@@ -64,13 +64,11 @@ function Login() {
         <br></br>
         <div className="su-form-btn">
           <button type="submit">Submit</button>
+          <Link to="/signup">
+            <button>Go to Signup!</button>
+          </Link>
         </div>
       </form>
-      <div className="su-btn">
-        <Link to="/signup">
-          <button>Go to Signup!</button>
-        </Link>
-      </div>
       <Footer></Footer>
     </div>
   );
