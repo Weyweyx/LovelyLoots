@@ -20,7 +20,7 @@ function Nav() {
             <Link to='/profile' style={listStyle}>Profile</Link>
           </li>
           <li>
-            <Link to='/productseach' style={listStyle}>Shop</Link>
+            <Link to='/productsearch' style={listStyle}>Shop</Link>
           </li>
         </ul>
       );

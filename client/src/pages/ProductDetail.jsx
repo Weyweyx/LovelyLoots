@@ -87,7 +87,9 @@ const ProductDetail = ({ spinner }) => {
       {currentProduct && cart ? (
         <div className="pd-content">
           <div className="pd-content-btn">
-            <Link to="/">← Back to Products</Link>
+            <Link to="/">
+            <button>Back to Products</button>
+            </Link>
           </div>
 
           <div className="pd-content-info">
