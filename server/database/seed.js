@@ -22,7 +22,7 @@ const seedDatabase = async () => {
 
       const categories = await Category.insertMany([
         {
-          name: "Fashion",
+          name: "Clothing",
           description: "Vintage and antique clothing.",
         },
         { name: "Furniture", description: "Vintage furniture." },
@@ -120,23 +120,32 @@ const seedDatabase = async () => {
           /* ADD IMAGE */
         },
         {
-          name: "",
-          description: "",
-          price ,
-          stock: ,
-          category: ,
-          seller: ,
+          name: "Vintage Embroidered Cats Frame",
+          description: "Handmade cat embroidery.",
+          price: 85.00,
+          stock: 1,
+          category: categories[2,6]._id,
+          seller: users[4]._id,
           /* ADD IMAGE */
         },
         {
-          name: "",
-          description: "",
-          price: ,
-          stock: ,
-          category: ,
-          seller: ,
+          name: "Antique Porcelain Jewelry Box",
+          description: "Beautiful porcelain jewelry box with two doves.",
+          price: 250.00,
+          stock: 1,
+          category: categories[5,6,7]._id,
+          seller: users[2]._id,
           /* ADD IMAGE */
-        }
+        },
+        {
+          name: "Antique Crystal Dish",
+          description: "100 year old crystal plate in outstanding condition.",
+          price: 200,
+          stock: 1,
+          category: categories[3,6]._id,
+          seller: users[4]._id,
+          /* ADD IMAGE */
+        },
       ]);
       console.log("Products seeded");
 
