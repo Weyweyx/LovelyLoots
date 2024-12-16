@@ -64,13 +64,15 @@ const ProductSearch = () => {
 
   return (
     <main>
+    <TitleHeader></TitleHeader> <Nav></Nav>
+      <div className="ps">
+        <h2>Our Products</h2>
       <div className="container">
-        <TitleHeader></TitleHeader> <Nav></Nav>
         <br></br>
         <CategoryNav></CategoryNav> {/* make sure this looks right after being able to login is fixed */}
         <h2>Our Products!</h2>
         {filteredProducts.length ? (
-          <div className="product-list">
+          <div className="ps-list">
             {filteredProducts.map((product) => (
               <ProductItem key={product._id} {...product} />
             ))}

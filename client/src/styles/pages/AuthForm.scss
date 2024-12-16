@@ -5,13 +5,13 @@
   align-items: center;
   &-background {
     display: flex;
-    position: absolute;
+    justify-content: center;
     align-items: center;
     top: 0;
     & img {
       object-fit: cover;
-      width: 50%;
-      height: 10%;
+      max-width: 40%;
+      height: auto;
       justify-content: center;
     }
   }
@@ -25,18 +25,32 @@
   }
   &-form {
     //add styles
-    color: aliceblue;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    color: rgb(26, 69, 106);
+    font-family: var(--font_1);
+
+    
     &-row {
       //add styles
       display: flex;
+      flex-direction:r;
+      ;
     }
     &-btn {
       //add
       display: flex;
+      justify-content: center;
+      margin: 2%;
+      
+      
     }
   }
   &-btn {
     //add
+    position: absolute;
     padding: auto;
+    top: 55%;
   }
 }
