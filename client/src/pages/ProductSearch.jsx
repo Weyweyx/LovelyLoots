@@ -88,7 +88,7 @@ const ProductSearch = () => {
           ) : (
             <h3>
               Sorry, no loot found in this category!
-            </h3> /* code this so if no products are found this is shown */
+            </h3>
           )}
         </div>
       </div>

@@ -30,3 +30,5 @@ Open Apollo sandbox and run queries based on seed data.
 
 ## Questions
 You can also find more of my work on my [GitHub profile](https://github.com/Weyweyx and https://github.com/croseb99 and https://github.com/Sam-Mina-engineer).
+
+![Screenshot of the application](client/src/assets/images/Screenshot.png)

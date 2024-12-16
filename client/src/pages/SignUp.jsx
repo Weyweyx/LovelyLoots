@@ -88,7 +88,7 @@ function Signup() {
         <div className="su-form-row">
           <label htmlFor="firstName">First Name: </label>
           <input
-            placeholder=""
+            placeholder="first name"
             name="firstName"
             type="text"
             id="firstName"
@@ -100,7 +100,7 @@ function Signup() {
         <div className="su-form-row">
           <label htmlFor="lastName">Last Name: </label>
           <input
-            placeholder=""
+            placeholder="last name"
             name="lastName"
             type="text"
             id="lastName"
@@ -112,7 +112,7 @@ function Signup() {
         <div className="su-form-row">
           <label htmlFor="email">Email: </label>
           <input
-            placeholder=""
+            placeholder="youremail@example.com"
             name="email"
             type="email"
             id="email"
@@ -124,7 +124,7 @@ function Signup() {
         <div className="su-form-row">
           <label htmlFor="pwd">Password: </label>
           <input
-            placeholder=""
+            placeholder="******"
             name="password"
             type="password"
             id="pwd"
@@ -136,6 +136,9 @@ function Signup() {
         <br></br>
         <div className="su-form-btn">
           <button type="submit">Submit</button>
+          <Link to="/login">
+            <button>Go to Login</button>
+          </Link>
         </div>
         <div className="su-btn">
         <Link to="/login">
@@ -143,7 +146,6 @@ function Signup() {
         </Link>
       </div>
       </form>
-     
       <Footer></Footer>
     </div>
   );

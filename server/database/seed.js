@@ -6,6 +6,7 @@ const Order = require("../models/Order");
 const cleanDB = require("./cleanDB");
 const db = require("../config/connection");
 
+
 const seedDatabase = async () => {
   try {
     // Connect to MongoDB
@@ -78,7 +79,7 @@ const seedDatabase = async () => {
           name: "Vintage Watch",
           description: "A timeless piece from the 1950s.",
           price: 250.0,
-          stock: 1,
+          quantity: 1,
           category: categories[4,6]._id,
           seller: users[1]._id,
           image: "vintage-watch.png",
@@ -87,7 +88,7 @@ const seedDatabase = async () => {
           name: "Antique Chair",
           description: "Beautiful handcrafted chair from the 1800s.",
           price: 400.0,
-          stock: 5,
+          quantity: 5,
           category: categories[1,6]._id,
           seller: users[1]._id,
           image: "antique-chair.png",
@@ -96,55 +97,55 @@ const seedDatabase = async () => {
           name: "Vintage Polaroid Camera",
           description: "Fully functional 1980s Polaroid Impulse camera",
           price: 200.00,
-          stock: 1,
+          quantity: 1,
           category: categories[6,7]._id,
           seller: users[3]._id,
-          /* ADD IMAGE */
+          image: "polaroid-cam-img.jpg",
         },
         {
           name: "Antique Floral Picture Frame",
           description: "1950s antique circular picture frame",
           price: 60.00,
-          stock: 1,
+          quantity: 1,
           category: categories[2,6],
           seller: users[2]._id,
-          /* ADD IMAGE */
+          image: "floral-frame-img.jpg",
         },
         {
           name: "Antqiue Pearl Ring",
           description: "One of a kind ring from the 1920s with three real pearls.",
           price: 875.00,
-          stock: 1,
+          quantity: 1,
           category: categories[5,6],
           seller: users[3]._id,
-          /* ADD IMAGE */
+          image: "pear-ring-img.jpg",
         },
         {
           name: "Vintage Embroidered Cats Frame",
           description: "Handmade cat embroidery.",
           price: 85.00,
-          stock: 1,
+          quantity: 1,
           category: categories[2,6]._id,
           seller: users[4]._id,
-          /* ADD IMAGE */
+          image: "cat-emb-img.jpg",
         },
         {
           name: "Antique Porcelain Jewelry Box",
           description: "Beautiful porcelain jewelry box with two doves.",
           price: 250.00,
-          stock: 1,
+          quantity: 1,
           category: categories[5,6,7]._id,
           seller: users[2]._id,
-          /* ADD IMAGE */
+          image: "jewelry-box-img.jpg",
         },
         {
           name: "Antique Crystal Dish",
           description: "100 year old crystal plate in outstanding condition.",
           price: 200,
-          stock: 1,
+          quantity: 1,
           category: categories[3,6]._id,
           seller: users[4]._id,
-          /* ADD IMAGE */
+          image: "crystal-dish-img.jpg",
         },
       ]);
       console.log("Products seeded");
