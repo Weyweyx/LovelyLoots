@@ -15,10 +15,14 @@ const ProductSearch = () => {
 
   const { categories, currentCategory, products } = state;
 
-  const { loading: categoryLoading, data: categoryData } = useQuery(QUERY_CATEGORIES);
-  const { loading: productLoading, data: productData } = useQuery(QUERY_PRODUCTS, {
-    variables: { category: currentCategory },
-  });
+  const { loading: categoryLoading, data: categoryData } =
+    useQuery(QUERY_CATEGORIES);
+  const { loading: productLoading, data: productData } = useQuery(
+    QUERY_PRODUCTS,
+    {
+      variables: { category: currentCategory },
+    }
+  );
 
   useEffect(() => {
     if (categoryData) {
@@ -64,22 +68,29 @@ const ProductSearch = () => {
 
   return (
     <main>
-    <TitleHeader></TitleHeader> <Nav></Nav>
       <div className="ps">
+        <TitleHeader></TitleHeader> <Nav></Nav>
+        <div className="ps-background">
+          <img src="/right_1728.webp" alt="" />
+        </div>
         <h2>Our Products</h2>
-      <div className="container">
-        <br></br>
-        <CategoryNav></CategoryNav> {/* make sure this looks right after being able to login is fixed */}
-        <h2>Our Products!</h2>
-        {filteredProducts.length ? (
-          <div className="ps-list">
-            {filteredProducts.map((product) => (
-              <ProductItem key={product._id} {...product} />
-            ))}
-          </div>
-        ) : (
-          <h3>Sorry, no loot found in this category!</h3> /* code this so if no products are found this is shown */
-        )}
+        <div className="container">
+          <br></br>
+          <CategoryNav></CategoryNav>{" "}
+          {/* make sure this looks right after being able to login is fixed */}
+          <h2>Our Products!</h2>
+          {filteredProducts.length ? (
+            <div className="ps-list">
+              {filteredProducts.map((product) => (
+                <ProductItem key={product._id} {...product} />
+              ))}
+            </div>
+          ) : (
+            <h3>
+              Sorry, no loot found in this category!
+            </h3> /* code this so if no products are found this is shown */
+          )}
+        </div>
       </div>
       <Footer></Footer>
     </main>

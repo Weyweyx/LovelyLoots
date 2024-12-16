@@ -5,6 +5,7 @@
     --color_4: #ffdf64;
     --color_5: #877b66;
     --color_6: #f9edcc;
+    --color_7: rgb(26, 69, 106);
     --color_light: white;
     --color_dark: black;
 
@@ -34,7 +35,7 @@
     text-decoration: inherit;
   }
   a:hover {
-    color: var(--color_2);
+    color: var(--color_);
   }
   
   body {

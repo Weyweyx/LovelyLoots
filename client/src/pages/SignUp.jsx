@@ -42,7 +42,7 @@ function Signup() {
     try {
       // proceed with mutation if validation passes
       // here (line 30) is where an error occurs
-     const mutationResponse = await addUser({
+      const mutationResponse = await addUser({
         variables: {
           firstName: formState.firstName,
           lastName: formState.lastName,
@@ -52,11 +52,13 @@ function Signup() {
       });
 
       const token = mutationResponse.data.addUser.token;
-      Auth.login(token);  // Login the user after successful signup
+      Auth.login(token); // Login the user after successful signup
       navigate("/productsearch");
     } catch (e) {
       //console.error("Error during signup:", e);
-      setErrors({ general: "An error occurred during signup. Please try again!" });
+      setErrors({
+        general: "An error occurred during signup. Please try again!",
+      });
     }
 
     console.log("SignUp form submitted", formState);
@@ -74,8 +76,10 @@ function Signup() {
     <div className="su">
       <TitleHeader></TitleHeader>
       <div className="su-background">
-        <img src="/hero__arch.webp" alt="" />
-
+        <div className="su-background-l"><img src="/hero__arch.webp" alt="" /></div>
+        <div className="su-background-r">
+          <img src="/right_1728.webp" alt="" />
+        </div>
       </div>
       <div className="su-title">
         <h2></h2>
@@ -133,12 +137,13 @@ function Signup() {
         <div className="su-form-btn">
           <button type="submit">Submit</button>
         </div>
-      </form>
-      <div className="su-btn">
+        <div className="su-btn">
         <Link to="/login">
-          <button>Go to Login</button>
+          <button type="button">Go to Login</button>
         </Link>
       </div>
+      </form>
+     
       <Footer></Footer>
     </div>
   );
