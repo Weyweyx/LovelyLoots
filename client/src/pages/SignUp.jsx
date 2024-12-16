@@ -76,7 +76,10 @@ function Signup() {
     <div className="su">
       <TitleHeader></TitleHeader>
       <div className="su-background">
-        <img src="/hero__arch.webp" alt="" />
+        <div className="su-background-l"><img src="/hero__arch.webp" alt="" /></div>
+        <div className="su-background-r">
+          <img src="/right_1728.webp" alt="" />
+        </div>
       </div>
       <div className="su-title">
         <h2></h2>
@@ -137,6 +140,11 @@ function Signup() {
             <button>Go to Login</button>
           </Link>
         </div>
+        <div className="su-btn">
+        <Link to="/login">
+          <button type="button">Go to Login</button>
+        </Link>
+      </div>
       </form>
       <Footer></Footer>
     </div>

@@ -1,0 +1,8 @@
+.footer{
+        color: var(--color_3);
+        font-family: var(--font-2);
+        &-brand{
+            color: var(--color_dark);
+            margin-top: 9%;
+        }
+    }
