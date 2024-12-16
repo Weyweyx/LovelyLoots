@@ -1,65 +1,57 @@
-const express = require('express');
-const { ApolloServer } = require('apollo-server-express');
-const cors = require('cors');
-const path = require('path');
-const typeDefs = require('./schemas/typeDefs');
-const resolvers = require('./schemas/resolvers');
-const mongoose = require ('./config/connection');
+const express = require("express");
+const { ApolloServer } = require("@apollo/server");
+const path = require("path");
+const typeDefs = require("./schemas/typeDefs");
+const resolvers = require("./schemas/resolvers");
+const mongoose = require("./config/connection");
+const { authMiddleware } = require("./middleware/authMiddleware");
+const { expressMiddleware } = require("@apollo/server/express4");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-
-/* const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/lovely-loots', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
- mongoose.connection('connected', () =>
-  console.log('Connected to MongoDB')
-);
-mongoose.connection('error', (err) =>
-  console.error('MongoDB connection error:', err)
-); */
-
-// Enable CORS for requests coming from the frontend running on localhost:5173
-
-app.use(cors({ origin: 'http://localhost:5173' }));
-
-// Middleware to parse incoming JSON data
-
-app.use(express.json());
-
-// Create an Apollo Server instance
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
 
+const cors = require('cors');
+app.use(cors());
+
 // Start the Apollo server and apply middleware to Express
 
-async function startServer() {
+const startApolloServer = async () => {
   await server.start();
-  server.applyMiddleware({ app });
 
-  // Serve static files from the frontend build (if needed)
+  app.use(express.urlencoded({ extended: false }));
+  app.use(express.json());
 
-  app.use(express.static(path.join(__dirname, '../client/dist')));
+  // Serve up static assets
+  // app.use('/images', express.static(path.join(__dirname, '../client/images')));
 
-  // Catch-all handler to serve the React app for non-API routes
+  app.use(
+    "/graphql",
+    expressMiddleware(server, {
+      context: authMiddleware,
+    })
+  );
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "../client/dist")));
+
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+    });
+  }
+
+  mongoose.once("open", () => {
+    app.listen(PORT, () => {
+      console.log(`API server running on port ${PORT}!`);
+      console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
+    });
   });
-
-  // Start the server
-
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-    console.log(`GraphQL path: http://localhost:${PORT}${server.graphqlPath}`);
-  });
-}
+};
 
 // Start Apollo server
 
-startServer();
+startApolloServer();

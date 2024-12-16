@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Contact = () => {
 
@@ -41,6 +43,7 @@ const Contact = () => {
 
   return (
     <main>
+      <Header></Header>
       <div className="container my-1">
         <h2>Contact Us</h2>
         <form onSubmit={handleSubmit}>
@@ -85,6 +88,7 @@ const Contact = () => {
         </form>
         {submissionStatus && <p className="submission-status">{submissionStatus}</p>}
       </div>
+      <Footer></Footer>
     </main>
   );
 };

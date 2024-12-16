@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
+import { useNavigate } from "react-router-dom";
+import TitleHeader from "../components/TitleHeader";
+import Footer from "../components/Footer";
 
 function Signup() {
   const [formState, setFormState] = useState({
@@ -13,6 +16,7 @@ function Signup() {
   });
   const [errors, setErrors] = useState({});
   const [addUser] = useMutation(ADD_USER);
+  const navigate = useNavigate();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -38,7 +42,7 @@ function Signup() {
     try {
       // proceed with mutation if validation passes
       // here (line 30) is where an error occurs
-      const mutationResponse = await addUser({
+     const mutationResponse = await addUser({
         variables: {
           firstName: formState.firstName,
           lastName: formState.lastName,
@@ -48,12 +52,11 @@ function Signup() {
       });
 
       const token = mutationResponse.data.addUser.token;
-      Auth.login(token); // Login the user after successful signup
+      Auth.login(token);  // Login the user after successful signup
+      navigate("/productsearch");
     } catch (e) {
-      console.error("Error during signup:", e);
-      setErrors({
-        general: "An error occurred during signup. Please try again!",
-      });
+      //console.error("Error during signup:", e);
+      setErrors({ general: "An error occurred during signup. Please try again!" });
     }
 
     console.log("SignUp form submitted", formState);
@@ -69,6 +72,7 @@ function Signup() {
 
   return (
     <div className="su">
+      <TitleHeader></TitleHeader>
       <div className="su-background">
         <img src="/hero__arch.webp" alt="" />
 
@@ -135,6 +139,7 @@ function Signup() {
           <button>Go to Login</button>
         </Link>
       </div>
+      <Footer></Footer>
     </div>
   );
 }
