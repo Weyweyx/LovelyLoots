@@ -28,6 +28,7 @@
     position: absolute;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     color: rgb(26, 69, 106);
     font-family: var(--font_1);
 
@@ -35,14 +36,15 @@
     &-row {
       //add styles
       display: flex;
-      flex-direction:r;
-      ;
+      flex-direction:column;
+      justify-content: center;
+
     }
     &-btn {
       //add
       display: flex;
       justify-content: center;
-      margin: 2%;
+      margin: 5%;
       
       
     }
@@ -51,6 +53,6 @@
     //add
     position: absolute;
     padding: auto;
-    top: 55%;
+    top: 65%;
   }
 }

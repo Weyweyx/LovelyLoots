@@ -31,12 +31,16 @@ function Login() {
 
   return (
     <div className="su">
+      <div className="su-background">
+        <img src="/hero__arch.webp" alt="" />
+
+      </div>
       <h2>Login</h2>
       <form className= "su-form" onSubmit={handleFormSubmit}>
         <div className= "su-form-row">
           <label htmlFor="email">Email: </label>
           <input
-            placeholder="youremail@test.com"
+            placeholder=""
             name="email"
             type="email"
             id="email"
@@ -46,7 +50,7 @@ function Login() {
         <div className="su-form-row">
           <label htmlFor="pwd">Password: </label>
           <input
-            placeholder="******"
+            placeholder=""
             name="password"
             type="password"
             id="pwd"
@@ -55,7 +59,7 @@ function Login() {
         </div>
         {error ? (
           <div>
-            <p>The provided credentials are invalid!</p>
+            <p>The provided credentials are invalid</p>
           </div>
         ) : null}
         <br></br>
@@ -65,7 +69,7 @@ function Login() {
       </form>
       <div className="su-btn">
         <Link to="/signup">
-          <button>Go to Signup!</button>
+          <button>Go to Signup</button>
         </Link>
       </div>
     </div>
