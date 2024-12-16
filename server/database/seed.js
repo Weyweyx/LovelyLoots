@@ -6,6 +6,7 @@ const Order = require("../models/Order");
 const cleanDB = require("./cleanDB");
 const db = require("../config/connection");
 
+
 const seedDatabase = async () => {
   try {
     // Connect to MongoDB
@@ -99,7 +100,7 @@ const seedDatabase = async () => {
           stock: 1,
           category: categories[6,7]._id,
           seller: users[3]._id,
-          /* ADD IMAGE */
+          image: "polaroid-cam-img.jpg",
         },
         {
           name: "Antique Floral Picture Frame",
@@ -108,7 +109,7 @@ const seedDatabase = async () => {
           stock: 1,
           category: categories[2,6],
           seller: users[2]._id,
-          /* ADD IMAGE */
+          image: "floral-frame-img.jpg",
         },
         {
           name: "Antqiue Pearl Ring",
@@ -117,7 +118,7 @@ const seedDatabase = async () => {
           stock: 1,
           category: categories[5,6],
           seller: users[3]._id,
-          /* ADD IMAGE */
+          image: "pear-ring-img.jpg",
         },
         {
           name: "Vintage Embroidered Cats Frame",
@@ -126,7 +127,7 @@ const seedDatabase = async () => {
           stock: 1,
           category: categories[2,6]._id,
           seller: users[4]._id,
-          /* ADD IMAGE */
+          image: "cat-emb-img.jpg",
         },
         {
           name: "Antique Porcelain Jewelry Box",
@@ -135,7 +136,7 @@ const seedDatabase = async () => {
           stock: 1,
           category: categories[5,6,7]._id,
           seller: users[2]._id,
-          /* ADD IMAGE */
+          image: "jewelry-box-img.jpg",
         },
         {
           name: "Antique Crystal Dish",
@@ -144,7 +145,7 @@ const seedDatabase = async () => {
           stock: 1,
           category: categories[3,6]._id,
           seller: users[4]._id,
-          /* ADD IMAGE */
+          image: "crystal-dish-img.jpg",
         },
       ]);
       console.log("Products seeded");
