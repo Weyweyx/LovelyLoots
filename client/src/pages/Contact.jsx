@@ -42,7 +42,7 @@ const Contact = () => {
   };
 
   return (
-    <main>
+    <main className="co">
       <Header></Header>
       <div className="container my-1">
         <h2>Contact Us</h2>
