@@ -85,9 +85,10 @@ function Signup() {
         <h2></h2>
       </div>
       <form className="su-form" onSubmit={handleFormSubmit}>
+        <h2 className="su-form-title">Sign Up</h2>
         <div className="su-form-row">
           <label htmlFor="firstName">First Name: </label>
-          <input
+          <input className="su-form-row-input"
             placeholder="first name"
             name="firstName"
             type="text"
@@ -99,7 +100,7 @@ function Signup() {
         </div>
         <div className="su-form-row">
           <label htmlFor="lastName">Last Name: </label>
-          <input
+          <input className="su-form-row-input"
             placeholder="last name"
             name="lastName"
             type="text"
@@ -111,7 +112,7 @@ function Signup() {
         </div>
         <div className="su-form-row">
           <label htmlFor="email">Email: </label>
-          <input
+          <input className="su-form-row-input"
             placeholder="youremail@example.com"
             name="email"
             type="email"
@@ -123,7 +124,7 @@ function Signup() {
         </div>
         <div className="su-form-row">
           <label htmlFor="pwd">Password: </label>
-          <input
+          <input className="su-form-row-input"
             placeholder="******"
             name="password"
             type="password"
@@ -140,11 +141,11 @@ function Signup() {
             <button>Go to Login</button>
           </Link>
         </div>
-        <div className="su-btn">
+        {/* <div className="su-btn">
         <Link to="/login">
           <button type="button">Go to Login</button>
         </Link>
-      </div>
+      </div> */}
       </form>
       <Footer></Footer>
     </div>

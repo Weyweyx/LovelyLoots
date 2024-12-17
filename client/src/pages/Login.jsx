@@ -37,11 +37,12 @@ function Login() {
       <div className="su-background">
         <img src="/hero__arch.webp" alt="" />
       </div>
-      <h2>Login</h2>
+      
       <form className= "su-form" onSubmit={handleFormSubmit}>
+      <h2 className="su-form-title">Login</h2>
         <div className= "su-form-row">
           <label htmlFor="email">Email: </label>
-          <input
+          <input className="su-form-row-input"
             placeholder="youremail@example.com"
             name="email"
             type="email"
@@ -51,7 +52,7 @@ function Login() {
         </div>
         <div className="su-form-row">
           <label htmlFor="pwd">Password: </label>
-          <input
+          <input className="su-form-row-input"
             placeholder="******"
             name="password"
             type="password"

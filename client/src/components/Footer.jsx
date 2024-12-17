@@ -14,7 +14,9 @@ const Footer = () => {
       {/* Quick Links */}
 
       <div className="footer-links">
-        <Link to="/contact">Contact</Link>
+        <Link to="/contact">
+        <button>Contact</button>
+        </Link>
       </div>
     </footer>
   );
