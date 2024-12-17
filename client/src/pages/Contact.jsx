@@ -43,7 +43,7 @@ const Contact = () => {
 
   return (
     <main className="co">
-      <Header></Header>
+      <Header />
       <div className="container my-1">
         <h2>Contact Us</h2>
         <form onSubmit={handleSubmit}>
@@ -88,7 +88,7 @@ const Contact = () => {
         </form>
         {submissionStatus && <p className="submission-status">{submissionStatus}</p>}
       </div>
-      <Footer></Footer>
+      <Footer />
     </main>
   );
 };

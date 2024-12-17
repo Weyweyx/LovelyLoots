@@ -1,35 +1,36 @@
-import { useEffect } from 'react';
-import { useQuery } from '@apollo/client';
-import { useStoreContext } from '../utils/GlobalState';
-import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../utils/actions';
-import { QUERY_CATEGORIES } from '../utils/queries';
-import { idbPromise } from '../utils/helpers';
+import { useEffect } from "react";
+import { useApolloClient, useQuery } from "@apollo/client";
+import { useStoreContext } from "../utils/GlobalState";
+import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from "../utils/actions";
+import { QUERY_CATEGORIES } from "../utils/queries";
+import { idbPromise } from "../utils/helpers";
 
 function CategoryNav() {
   const [state, dispatch] = useStoreContext();
 
   const { categories } = state;
 
-  const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
-
+  const { loading, data } = useQuery(QUERY_CATEGORIES);
+  const client = useApolloClient();
   useEffect(() => {
-    if (categoryData) {
+    client.cache.reset();
+    if (data) {
       dispatch({
         type: UPDATE_CATEGORIES,
-        categories: categoryData.categories,
+        categories: data.categories,
       });
-      categoryData.categories.forEach((category) => {
-        idbPromise('categories', 'put', category);
+      data.categories.forEach((category) => {
+        idbPromise("categories", "put", category);
       });
     } else if (!loading) {
-      idbPromise('categories', 'get').then((categories) => {
+      idbPromise("categories", "get").then((categories) => {
         dispatch({
           type: UPDATE_CATEGORIES,
           categories: categories,
         });
       });
     }
-  }, [categoryData, loading, dispatch]);
+  }, [data, loading, dispatch]);
 
   const handleClick = (id) => {
     dispatch({
@@ -38,6 +39,7 @@ function CategoryNav() {
     });
   };
 
+  console.log({ categories });
   return (
     <div>
       <h2>Choose a Category!</h2>
@@ -53,7 +55,7 @@ function CategoryNav() {
       ))}
       <button
         onClick={() => {
-          handleClick('');
+          handleClick("");
         }}
       >
         All

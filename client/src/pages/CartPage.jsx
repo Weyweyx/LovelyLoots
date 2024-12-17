@@ -7,12 +7,13 @@ import Nav from "../components/Nav";
 const CartPage = () => {
   return (
     <main>
-      <TitleHeader></TitleHeader> <Nav></Nav>
+      <TitleHeader /> 
+      <Nav />
       <div className="container my-1">
         <h2>Shopping Cart</h2>
         <Cart />
       </div>
-      <Footer></Footer>
+      <Footer />
     </main>
   );
 };

@@ -34,8 +34,8 @@ const ProductInfo = ({ _id, image, name, price, quantity, description }) => {
   return (
     <div className='pi'>
       <Link to={`/products/${_id}`}>
-        <img alt={name} src={image} />
-        <p>{name}</p>
+       {/*  <img alt={name} src={image} /> */}
+        <p style= {{color: 'black'}}>{name}</p>
       </Link>
       <div className='pi-product'>
         <div className='pi-product-info'>

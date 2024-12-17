@@ -9,6 +9,7 @@ import CategoryNav from "../components/CategoryNav";
 import TitleHeader from "../components/TitleHeader";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
+import ProductList from "../components/ProductList";
 
 const ProductSearch = () => {
   const [state, dispatch] = useStoreContext();
@@ -24,7 +25,8 @@ const ProductSearch = () => {
     }
   );
 
-  useEffect(() => {
+  /* useEffect(() => {
+    console.log({categoryData})
     if (categoryData) {
       dispatch({
         type: UPDATE_CATEGORIES,
@@ -42,7 +44,7 @@ const ProductSearch = () => {
       });
     }
   }, [categoryData, categoryLoading, dispatch]);
-
+ */
   useEffect(() => {
     if (productData) {
       dispatch({
@@ -69,30 +71,32 @@ const ProductSearch = () => {
   return (
     <main>
       <div className="ps">
-        <TitleHeader></TitleHeader> <Nav></Nav>
+        <TitleHeader /> 
+        <Nav />
         <div className="ps-background">
           <img src="/right_1728.webp" alt="" />
         </div>
         <h2>Our Products</h2>
         <div className="container">
           <br></br>
-          <CategoryNav></CategoryNav>{" "}
-          {/* make sure this looks right after being able to login is fixed */}
+          <CategoryNav />{" "}
+    
           <h2>Our Products!</h2>
-          {filteredProducts.length ? (
+          {/* {filteredProducts.length ? ( */}
             <div className="ps-list">
-              {filteredProducts.map((product) => (
+              {/* {filteredProducts.map((product) => (
                 <ProductItem key={product._id} {...product} />
-              ))}
+              ))} */}
+              <ProductList />
             </div>
-          ) : (
+          {/* ) : (
             <h3>
               Sorry, no loot found in this category!
             </h3>
-          )}
+          )} */}
         </div>
       </div>
-      <Footer></Footer>
+      <Footer />
     </main>
   );
 };

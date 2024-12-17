@@ -7,7 +7,7 @@ const LandingPage = () => {
       <div className="lp-background"> 
         <img src="/hero_desktop.webp" alt="" />
       </div>
-      <Header></Header>
+      <Header />
       <div className="lp-cta"> 
         <h1>Welcome to Lovely Loots</h1>
         <p>At Lovely Loots, we understand the enjoyment of collecting antiques and
@@ -15,7 +15,7 @@ const LandingPage = () => {
             you&apos;ll be shown vintage products that we are sure you will love! So get searching for that Lovely Loot!
         </p>
       </div>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };

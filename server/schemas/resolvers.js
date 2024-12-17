@@ -1,4 +1,4 @@
-const { User, Product, Order } = require("../models");
+const { User, Product, Order, Category } = require("../models");
 const { signToken, AuthenticationError, authMiddleware } = require("../middleware/authMiddleware");
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 // need to add category model 
@@ -21,8 +21,9 @@ const resolvers = {
     users: async () => User.find(),
     user: async (_, { _id }) => User.findById(_id),
     products: async (_, { category }) =>
-      category ? Product.find({ category }) : Product.find(),
+      category ? Product.find({ category }).populate([{path:'category'}, {path:'seller'}]) : Product.find(),
     orders: async () => Order.find().populate("user").populate("products.product"),
+    categories: async () => Category.find(),
   },
   Mutation: {
     //addUser: async (_, args) => User.create(args),
