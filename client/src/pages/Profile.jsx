@@ -44,7 +44,8 @@ const Profile = () => {
 
   return (
     <div>
-      <TitleHeader></TitleHeader> <Nav></Nav>
+      <TitleHeader /> 
+      <Nav />
       <h2>Your Profile</h2>
       <div>
         <p>
@@ -77,7 +78,7 @@ const Profile = () => {
       ) : (
         <h3>You haven&apos;t placed any orders yet!</h3>
       )}
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };

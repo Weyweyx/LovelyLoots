@@ -12,7 +12,9 @@ function ProductList() {
 
   const { currentCategory } = state;
 
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const { loading, data } = useQuery(QUERY_PRODUCTS, {
+    variables: { category: currentCategory }
+  });
 
   useEffect(() => {
     if (data) {
@@ -56,7 +58,6 @@ function ProductList() {
               description={product.description}
               price={product.price}
               quantity={product.quantity}
-              image={product.image}
             />
           ))}
         </div>

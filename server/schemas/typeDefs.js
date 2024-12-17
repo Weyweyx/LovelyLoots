@@ -12,13 +12,19 @@ const typeDefs = `
     user: User
   }
 
+  type Category {
+    _id: ID
+    name: String
+    description: String
+  }
+
   type Product {
     _id: ID
     name: String
     description: String
     price: Float
-    stock: Int
-    category: String
+    quantity: Int
+    category: Category
     seller: User
   }
 
@@ -39,8 +45,9 @@ const typeDefs = `
   type Query {
     users: [User]
     user(_id: ID!): User
-    products(category: String): [Product]
+    products(category: ID): [Product]
     orders: [Order]
+    categories: [Category]
   }
 
   type Mutation {

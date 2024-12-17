@@ -83,7 +83,8 @@ const ProductDetail = ({ spinner }) => {
 
   return (
     <div className="pd">
-      <TitleHeader></TitleHeader> <Nav></Nav>
+      <TitleHeader /> 
+      <Nav />
       {currentProduct && cart ? (
         <div className="pd-content">
           <div className="pd-content-btn">
@@ -119,7 +120,7 @@ const ProductDetail = ({ spinner }) => {
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
       <Cart />
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };

@@ -74,7 +74,7 @@ function Signup() {
 
   return (
     <div className="su">
-      <TitleHeader></TitleHeader>
+      <TitleHeader />
       <div className="su-background">
         <div className="su-background-l"><img src="/hero__arch.webp" alt="" /></div>
         <div className="su-background-r">
@@ -147,7 +147,7 @@ function Signup() {
         </Link>
       </div> */}
       </form>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }
