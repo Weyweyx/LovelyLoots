@@ -34,11 +34,11 @@ function Login() {
   return (
     <div className="su">
       <TitleHeader></TitleHeader>
-      <div className="su-background">
+      <div className="su-background su-background-login">
         <img src="/hero__arch.webp" alt="" />
       </div>
       
-      <form className= "su-form" onSubmit={handleFormSubmit}>
+      <form className= "su-form su-form-login" onSubmit={handleFormSubmit}>
       <h2 className="su-form-title">Login</h2>
         <div className= "su-form-row">
           <label htmlFor="email">Email: </label>
