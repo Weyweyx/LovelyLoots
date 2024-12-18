@@ -71,7 +71,7 @@ const ProductSearch = () => {
   return (
     <main>
       <div className="ps">
-        <TitleHeader /> 
+        <TitleHeader />
         <Nav />
         <div className="ps-background">
           <img src="/right_1728.webp" alt="" />
@@ -79,10 +79,10 @@ const ProductSearch = () => {
         <div className="container">
           <br></br>
           <CategoryNav />{" "}
-            <div className="ps-list">
-              <br></br>
-              <ProductList />
-            </div>
+          <div className="ps-list">
+            <br></br>
+            <ProductList />
+          </div>
         </div>
       </div>
       <Footer />
