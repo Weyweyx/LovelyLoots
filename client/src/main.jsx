@@ -11,6 +11,7 @@ import ProductDetail from './pages/ProductDetail.jsx';
 import ProductSearch from './pages/ProductSearch.jsx';
 import Contact from './pages/Contact.jsx';
 import Profile from './pages/Profile.jsx';
+import CartPage from './pages/CartPage.jsx';
 
 // import Success from './pages/Success';
 
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <Profile />
+      },
+      {
+        path: '/cart',
+        element: <CartPage />
       }
     ],
   },

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_CATEGORIES, QUERY_PRODUCTS } from "../utils/queries";
 import { useStoreContext } from "../utils/GlobalState";
-import { UPDATE_CATEGORIES, UPDATE_PRODUCTS } from "../utils/actions";
+import { UPDATE_PRODUCTS } from "../utils/actions";
 import ProductItem from "../components/ProductInfo";
 import { idbPromise } from "../utils/helpers";
 import CategoryNav from "../components/CategoryNav";
@@ -64,9 +64,9 @@ const ProductSearch = () => {
     }
   }, [productData, productLoading, dispatch]);
 
-  const filteredProducts = products.filter((product) =>
+  /* const filteredProducts = products.filter((product) =>
     currentCategory ? product.category._id === currentCategory : true
-  );
+  ); */
 
   return (
     <main>
@@ -76,24 +76,13 @@ const ProductSearch = () => {
         <div className="ps-background">
           <img src="/right_1728.webp" alt="" />
         </div>
-        <h2>Our Products</h2>
         <div className="container">
           <br></br>
           <CategoryNav />{" "}
-    
-          <h2>Our Products!</h2>
-          {/* {filteredProducts.length ? ( */}
             <div className="ps-list">
-              {/* {filteredProducts.map((product) => (
-                <ProductItem key={product._id} {...product} />
-              ))} */}
+              <br></br>
               <ProductList />
             </div>
-          {/* ) : (
-            <h3>
-              Sorry, no loot found in this category!
-            </h3>
-          )} */}
         </div>
       </div>
       <Footer />

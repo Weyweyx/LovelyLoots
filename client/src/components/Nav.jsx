@@ -5,22 +5,21 @@ import { Link } from 'react-router-dom';
 function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
-      const listStyle = {
-        display: 'inline-block',
-        marginRight: '10px', // optional, adds space between list items
-      };
       return (
         <ul>
           <li>
-            <a href='/' onClick={() => Auth.logout()} style={listStyle}>
+            <a href='/' onClick={() => Auth.logout()}>
               Logout
             </a>
           </li>
           <li>
-            <Link to='/profile' style={listStyle}>Profile</Link>
+            <Link to='/profile'>Profile</Link>
           </li>
           <li>
-            <Link to='/productsearch' style={listStyle}>Shop</Link>
+            <Link to='/productsearch'>Shop</Link>
+          </li>
+          <li>
+            <Link to='/cart'>Cart</Link>
           </li>
         </ul>
       );

@@ -80,7 +80,7 @@
     max-width: 100vw;
     height: 100vh;
     max-height: 100vh;
-    overflow: hidden;
+    overflow: auto; // changed this to auto => having it as hidden causes app to not scroll
 
   }
 
