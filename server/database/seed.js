@@ -6,7 +6,6 @@ const Order = require("../models/Order");
 const cleanDB = require("./cleanDB");
 const db = require("../config/connection");
 
-
 const seedDatabase = async () => {
   try {
     // Connect to MongoDB
@@ -30,8 +29,10 @@ const seedDatabase = async () => {
         { name: "Decor", description: "Vintage decor and antiques." },
         { name: "Kitchenware", description: "Vintage kitchenware." },
         { name: "Accessories", description: "Vinatge watches, glasses etc." },
-        { name: "Jewelry", description: "Antique and vintage necklaces, earrings etc." },
-        { name: "All", description: "All vintage products." },
+        {
+          name: "Jewelry",
+          description: "Antique and vintage necklaces, earrings etc.",
+        },
         { name: "Other", description: "Miscellaneous vintage items." },
       ]);
       console.log("Categories seeded");
@@ -69,6 +70,18 @@ const seedDatabase = async () => {
           email: "neondarkness711@gmail.com",
           password: "password123",
         },
+        {
+          firstName: "Caroline",
+          lastName: "Bost",
+          email: "bostcaroline412@gmail.com",
+          password: "password123",
+        },
+        {
+          firstName: "Jonathan",
+          lastName: "Torres",
+          email: "techmylocker@gmail.com",
+          password: "password123",
+        },
       ]);
       console.log("Users seeded");
 
@@ -96,7 +109,7 @@ const seedDatabase = async () => {
         {
           name: "Vintage Polaroid Camera",
           description: "Fully functional 1980s Polaroid Impulse camera",
-          price: 200.00,
+          price: 200.0,
           quantity: 1,
           category: categories[6]._id,
           seller: users[3]._id,
@@ -105,7 +118,7 @@ const seedDatabase = async () => {
         {
           name: "Antique Floral Picture Frame",
           description: "1950s antique circular picture frame",
-          price: 60.00,
+          price: 60.0,
           quantity: 1,
           category: categories[2]._id,
           seller: users[2]._id,
@@ -113,8 +126,9 @@ const seedDatabase = async () => {
         },
         {
           name: "Antqiue Pearl Ring",
-          description: "One of a kind ring from the 1920s with three real pearls.",
-          price: 875.00,
+          description:
+            "One of a kind ring from the 1920s with three real pearls.",
+          price: 875.0,
           quantity: 1,
           category: categories[5]._id,
           seller: users[3]._id,
@@ -123,7 +137,7 @@ const seedDatabase = async () => {
         {
           name: "Vintage Embroidered Cats Frame",
           description: "Handmade cat embroidery.",
-          price: 85.00,
+          price: 85.0,
           quantity: 1,
           category: categories[2]._id,
           seller: users[4]._id,
@@ -132,7 +146,7 @@ const seedDatabase = async () => {
         {
           name: "Antique Porcelain Jewelry Box",
           description: "Beautiful porcelain jewelry box with two doves.",
-          price: 250.00,
+          price: 250.0,
           quantity: 1,
           category: categories[5]._id,
           seller: users[2]._id,
@@ -141,11 +155,110 @@ const seedDatabase = async () => {
         {
           name: "Antique Crystal Dish",
           description: "100 year old crystal plate in outstanding condition.",
-          price: 200,
+          price: 650.0,
           quantity: 1,
           category: categories[3]._id,
           seller: users[4]._id,
           image: "crystal-dish-img.jpg",
+        },
+        {
+          name: "Vintage Cola Bottle Opener Floral Painted Wooden Plaque",
+          description: "Wooden plaque wall decor made with a real vintage Coca-Cola bottle opener and beautifully painted flower.",
+          price: 100.0,
+          quantity: 1,
+          category: categories[2]._id,
+          seller: users[5]._id,
+          image: "whiteflower-bottle-plaque",
+        },
+        {
+          name: "Vintage Coca-Cola Bottle Opener Painted Wooden Plaque",
+          description: "Wooden plaque wall decor made with a real vintage Coca-Cola bottle opener and a hand-painted frog.",
+          price: 100.0,
+          quantity: 1,
+          category: categories[2]._id,
+          seller: users[5]._id,
+          image: "frog-bottle-plaque",
+        },
+        {
+          name: "Vintage Cow Cast Iron Skillet Decor",
+          description: "Cast iron skillet wall decor with a cow imprinted wall decor.",
+          price: 175.0,
+          quantity: 1,
+          category: categories[2]._id,
+          seller: users[6]._id,
+          image: "cow-skillet",
+        },
+        {
+          name: "Antique Farmer Cast Iron Skillet Decor",
+          description: "Wonderful condition cast iron made farmer and hand-painted.",
+          price: 300.0,
+          quantity: 1,
+          category: categories[2]._id,
+          seller: users[6]._id,
+          image: "farmer-skillet",
+        },
+        {
+          name: "Vintage Snowman Cast Iron Skillet Decor",
+          description: "Joyful Snowman 'Let it snow' imprinted cast iron skillet wall decor.",
+          price: 175.0,
+          quantity: 1,
+          category: categories[2]._id,
+          seller: users[6]._id,
+          image: "snowman-skillet",
+        },
+        {
+          name: "Antique Glass Citrus Juicer",
+          description: "1920s antique citrust hand juicer in perfect condition.",
+          price: 450.0,
+          quantity: 1,
+          category: categories[3]._id,
+          seller: users[4]._id,
+          image: "citrus-juicer",
+        },
+        {
+          name: "Antique Hand-Painted Kitchenware",
+          description: "Small, good condition, beautifully floral painted antique pot dating back to early 1900s.",
+          price: 700.0,
+          quantity: 1,
+          category: categories[3]._id,
+          seller: users[3]._id,
+          image: "small-pot",
+        },
+        {
+          name: "Antique Hand-Painted Kitchenware",
+          description: "Large, orange floral painted antique pot, dating back to early 1900s.",
+          price: 775.0,
+          quantity: 1,
+          category: categories[3]._id,
+          seller: users[3]._id,
+          image: "large-pot",
+        },
+        {
+          name: "Vintage Fossil Coin Purse",
+          description: "Good condition, genuine Fossil coin pursel from mid 1950s.",
+          price: 450.0,
+          quantity: 1,
+          category: categories[4]._id,
+          seller: users[4]._id,
+          image: "fossil-purse",
+        },
+        {
+          name: "Antique Floral Rosary",
+          description: "Beautiful antique white pearl and pink rose rosary.",
+          price: 175.0,
+          quantity: 1,
+          category: categories[5]._id,
+          seller: users[6]._id,
+          image: "rose-rosary",
+        },
+        {
+          name: "Antique Heart Locket",
+          description: "Heart locket made in the 1930s in perfect condition.",
+          price: 300.0,
+          quantity: 1,
+          category: categories[5]._id,
+          seller: users[4]._id,
+          image: "heart-locket",
         },
       ]);
       console.log("Products seeded");

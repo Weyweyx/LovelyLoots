@@ -48,6 +48,7 @@ function ProductList() {
   return (
     <div>
       <h2>Our Products:</h2>
+      <br></br>
       {state.products.length ? (
         <div>
           {filterProducts().map((product) => (
@@ -62,11 +63,11 @@ function ProductList() {
           ))}
         </div>
       ) : (
-        <h3>You have not added any products yet!</h3>
+        <h3>Sorry, no loot found in this category yet!</h3>
       )}
       {loading ? <img src={spinner} alt='loading' /> : null}
     </div>
   );
-}
+};
 
 export default ProductList;
