@@ -159,7 +159,7 @@ const seedDatabase = async () => {
           quantity: 1,
           category: categories[3]._id,
           seller: users[4]._id,
-          image: "crystal-dish-img.jpg",
+          image: "../../client/src/assets/images/crystal-dish-img.jpg",
         },
         {
           name: "Vintage Cola Bottle Opener Floral Painted Wooden Plaque",
