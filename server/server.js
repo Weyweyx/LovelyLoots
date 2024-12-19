@@ -15,7 +15,7 @@ const server = new ApolloServer({
   resolvers,
 });
 
-const cors = require('cors');
+const cors = require("cors");
 app.use(cors());
 
 // Start the Apollo server and apply middleware to Express
@@ -26,8 +26,7 @@ const startApolloServer = async () => {
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
 
-  // Serve up static assets
-  // app.use('/images', express.static(path.join(__dirname, '../client/images')));
+  // GraphQL endpoint
 
   app.use(
     "/graphql",
@@ -36,15 +35,19 @@ const startApolloServer = async () => {
     })
   );
 
+  // Serve static assets in production
+
   if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "../client/dist")));
+    app.use(express.static(path.join(__dirname, "../client")));
+
+    // Fallback to React's index.html for unmatched routes
 
     app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+      res.sendFile(path.join(__dirname, "../client/index.html"));
     });
   }
 
-  mongoose.once("open", () => {
+  mongoose.connection.once("open", () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
       console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
