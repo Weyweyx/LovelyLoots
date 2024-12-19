@@ -1,10 +1,13 @@
 .pd {
   //add
   &-content {
-    //add
+  p {
+    color: black;
+  }
 
     &-info {
       //add
+      color: black;
     }
     &-card {
       &-header {
