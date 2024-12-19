@@ -16,5 +16,9 @@
   "license": "None",
   "devDependencies": {
     "concurrently": "^6.2.1"
+  },
+  "dependencies": {
+    "mongodb": "^6.12.0",
+    "mongoose": "^8.9.1"
   }
 }
