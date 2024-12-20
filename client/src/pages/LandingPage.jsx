@@ -4,9 +4,9 @@ import Footer from "../components/Footer";
 const LandingPage = () => {
   return (
     <div className="lp">
-      <div className="lp-background"> 
+      {/* <div className="lp-background"> 
         <img src="/hero_desktop.webp" alt="" />
-      </div>
+      </div> */}
       <Header />
       <div className="lp-cta"> 
         <h1>Welcome to Lovely Loots</h1>

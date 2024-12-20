@@ -83,8 +83,7 @@ const ProductDetail = ({ spinner }) => {
 
   return (
     <div className="pd">
-      <TitleHeader /> 
-      <Nav />
+      <TitleHeader to="/productsearch" /> 
       {currentProduct && cart ? (
         <div className="pd-content">
           <div className="pd-content-btn">
