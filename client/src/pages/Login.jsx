@@ -1,14 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
 import TitleHeader from "../components/TitleHeader";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!Auth.loggedIn()) {
+      return
+    }
+
+    navigate('/productsearch')
+  , [Auth.loggedIn()]})
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -37,12 +47,13 @@ function Login() {
       <div className="su-background su-background-login">
         <img src="/hero__arch.webp" alt="" />
       </div>
-      
-      <form className= "su-form su-form-login" onSubmit={handleFormSubmit}>
-      <h2 className="su-form-title">Login</h2>
-        <div className= "su-form-row">
+
+      <form className="su-form su-form-login" onSubmit={handleFormSubmit}>
+        <h2 className="su-form-title">Login</h2>
+        <div className="su-form-row">
           <label htmlFor="email">Email: </label>
-          <input className="su-form-row-input"
+          <input
+            className="su-form-row-input"
             placeholder="youremail@example.com"
             name="email"
             type="email"
@@ -52,7 +63,8 @@ function Login() {
         </div>
         <div className="su-form-row">
           <label htmlFor="pwd">Password: </label>
-          <input className="su-form-row-input"
+          <input
+            className="su-form-row-input"
             placeholder="******"
             name="password"
             type="password"

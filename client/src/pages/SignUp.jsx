@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
@@ -17,6 +17,14 @@ function Signup() {
   const [errors, setErrors] = useState({});
   const [addUser] = useMutation(ADD_USER);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!Auth.loggedIn()) {
+      return;
+    }
+
+    navigate("/productsearch"), [Auth.loggedIn()];
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -53,7 +61,6 @@ function Signup() {
 
       const token = mutationResponse.data.addUser.token;
       Auth.login(token); // Login the user after successful signup
-      navigate("/productsearch");
     } catch (e) {
       //console.error("Error during signup:", e);
       setErrors({
@@ -76,7 +83,9 @@ function Signup() {
     <div className="su">
       <TitleHeader />
       <div className="su-background">
-        <div className="su-background-l"><img src="/hero__arch.webp" alt="" /></div>
+        <div className="su-background-l">
+          <img src="/hero__arch.webp" alt="" />
+        </div>
         <div className="su-background-r">
           <img src="/right_1728.webp" alt="" />
         </div>
@@ -88,7 +97,8 @@ function Signup() {
         <h2 className="su-form-title">Sign Up</h2>
         <div className="su-form-row">
           <label htmlFor="firstName">First Name: </label>
-          <input className="su-form-row-input"
+          <input
+            className="su-form-row-input"
             placeholder="first name"
             name="firstName"
             type="text"
@@ -100,7 +110,8 @@ function Signup() {
         </div>
         <div className="su-form-row">
           <label htmlFor="lastName">Last Name: </label>
-          <input className="su-form-row-input"
+          <input
+            className="su-form-row-input"
             placeholder="last name"
             name="lastName"
             type="text"
@@ -112,7 +123,8 @@ function Signup() {
         </div>
         <div className="su-form-row">
           <label htmlFor="email">Email: </label>
-          <input className="su-form-row-input"
+          <input
+            className="su-form-row-input"
             placeholder="youremail@example.com"
             name="email"
             type="email"
@@ -124,7 +136,8 @@ function Signup() {
         </div>
         <div className="su-form-row">
           <label htmlFor="pwd">Password: </label>
-          <input className="su-form-row-input"
+          <input
+            className="su-form-row-input"
             placeholder="******"
             name="password"
             type="password"
