@@ -12,11 +12,6 @@ function Nav() {
         </li>
         <li>
           <a>
-            <Link to="/profile">Profile</Link>
-          </a>
-        </li>
-        <li>
-          <a>
             <Link to="/productsearch">Shop</Link>
           </a>
         </li>

@@ -48,10 +48,6 @@ const router = createBrowserRouter([
         element: <Contact />
       },
       {
-        path: '/profile',
-        element: <Profile />
-      },
-      {
         path: '/cart',
         element: <CartPage />
       }
