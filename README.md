@@ -14,7 +14,7 @@ A Marketplace dedicated to buying and selling vintage items.
 - [Questions](#questions)
 
 ## Installation
-On local machines run npm i in the main terminal and then npm run dev. Open using browser on local host. Or simply navigate to [deployed URL]
+On local machines run npm i in the main terminal and then npm run dev. Open using browser on local host. Or simply navigate to https://lovelyloots-ti34.onrender.com/
 
 ## Usage
 A React based web application constructed using Vite that utilizes Node.js, Express.js, GraphQL, MongoDB, and the Stripe payment platform.
