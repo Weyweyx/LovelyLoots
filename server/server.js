@@ -38,7 +38,7 @@ const startApolloServer = async () => {
   // Serve static assets in production
 
   if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "../client")));
+    app.use(express.static(path.join(__dirname, "../client/dist")));
 
     // Fallback to React's index.html for unmatched routes
 
