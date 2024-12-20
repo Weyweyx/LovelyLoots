@@ -6,6 +6,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import TitleHeader from "./components/TitleHeader";
 
 import Nav from "./components/Nav";
 import { StoreProvider } from "./utils/GlobalState";
@@ -34,6 +35,9 @@ function App() {
     <ApolloProvider client={client}>
       <div className="app-content">
         <StoreProvider>
+          <div className="lp-background">
+            <img src="/hero_desktop.webp" alt="" />
+          </div>
           <Nav />
           <Outlet />
         </StoreProvider>

@@ -71,7 +71,7 @@ const ProductSearch = () => {
   return (
     <main>
       <div className="ps">
-        <TitleHeader />
+        <TitleHeader to="/productsearch" />
         <div className="ps-background">
           <img src="/right_1728.webp" alt="" />
         </div>

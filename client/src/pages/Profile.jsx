@@ -44,8 +44,7 @@ const Profile = () => {
 
   return (
     <div>
-      <TitleHeader /> 
-      <Nav />
+      <TitleHeader to="/productsearch" /> 
       <h2>Your Profile</h2>
       <div>
         <p>
