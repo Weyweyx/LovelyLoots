@@ -4,7 +4,6 @@ const typeDefs = `
     firstName: String
     lastName: String
     email: String
-    password: String
   }
 
   type Auth {
@@ -67,6 +66,10 @@ const typeDefs = `
       status: String
     ): Order
     deleteProduct(id: ID!): Product
+    login(
+    email: String!
+    password: String!
+    ): Auth
   }
 
   input OrderProductInput {

@@ -1,7 +1,11 @@
 const { User, Product, Order, Category } = require("../models");
-const { signToken, AuthenticationError, authMiddleware } = require("../middleware/authMiddleware");
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
-// need to add category model 
+const {
+  signToken,
+  AuthenticationError,
+  authMiddleware,
+} = require("../middleware/authMiddleware");
+const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
+// need to add category model
 const resolvers = {
   Query: {
     /* user: async (parent, args, context) => {
@@ -21,8 +25,14 @@ const resolvers = {
     users: async () => User.find(),
     user: async (_, { _id }) => User.findById(_id),
     products: async (_, { category }) =>
-      category ? Product.find({ category }).populate([{path:'category'}, {path:'seller'}]) : Product.find(),
-    orders: async () => Order.find().populate("user").populate("products.product"),
+      category
+        ? Product.find({ category }).populate([
+            { path: "category" },
+            { path: "seller" },
+          ])
+        : Product.find(),
+    orders: async () =>
+      Order.find().populate("user").populate("products.product"),
     categories: async () => Category.find(),
   },
   Mutation: {
@@ -31,7 +41,7 @@ const resolvers = {
       // Check if user already exists
       const existingUser = await User.findOne({ email });
       if (existingUser) {
-        throw new Error('User already exists');
+        throw new Error("User already exists");
       }
 
       // Create a new user
@@ -68,6 +78,27 @@ const resolvers = {
         throw new Error("Product not found");
       }
       return product;
+    },
+    login: async (_, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw AuthenticationError;
+      }
+
+      const isCorrectPass = await user.isCorrectPassword(password);
+
+      if (!isCorrectPass) {
+        throw AuthenticationError;
+      }
+
+      const token = signToken(user);
+
+      // Return the token and user object as part of Auth
+      return {
+        token,
+        user,
+      };
     },
   },
 };
