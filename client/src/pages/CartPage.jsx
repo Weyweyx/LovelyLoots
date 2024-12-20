@@ -8,7 +8,6 @@ const CartPage = () => {
   return (
     <main>
       <TitleHeader /> 
-      <Nav />
       <div className="container my-1">
         <h2>Shopping Cart</h2>
         <Cart />

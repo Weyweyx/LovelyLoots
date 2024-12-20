@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
-const Cart = ({ cartOpen }) => {
+const Cart = () => {
   const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
@@ -32,6 +32,7 @@ const Cart = ({ cartOpen }) => {
     if (!state.cart.length) {
       getCart();
     }
+    console.log(state.cart)
   }, [state.cart.length, dispatch]);
 
   function toggleCart() {
@@ -54,15 +55,15 @@ const Cart = ({ cartOpen }) => {
     });
   }
 
-  if (!cartOpen) {
-    return (
-      <div className="cart-closed" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
-          🛒
-        </span>
-      </div>
-    );
-  }
+  // if (!cartOpen) {
+  //   return (
+  //     <div className="cart-closed" onClick={toggleCart}>
+  //       <span role="img" aria-label="trash">
+  //         🛒
+  //       </span>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="cart">
