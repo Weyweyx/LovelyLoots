@@ -72,7 +72,6 @@ const ProductSearch = () => {
     <main>
       <div className="ps">
         <TitleHeader />
-        <Nav />
         <div className="ps-background">
           <img src="/right_1728.webp" alt="" />
         </div>
