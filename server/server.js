@@ -15,8 +15,8 @@ const server = new ApolloServer({
   resolvers,
 });
 
-const cors = require("cors");
-app.use(cors());
+//const cors = require("cors");
+//app.use(cors());
 
 // Start the Apollo server and apply middleware to Express
 
@@ -43,7 +43,7 @@ const startApolloServer = async () => {
     // Fallback to React's index.html for unmatched routes
 
     app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "../client/index.html"));
+      res.sendFile(path.join(__dirname, "../client/dist/index.html"));
     });
   }
 
